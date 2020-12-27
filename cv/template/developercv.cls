@@ -13,6 +13,7 @@
 \usepackage[hidelinks]{hyperref}  % Required for links, boxes hidden.
 \pagestyle{empty}  % No headers or footers.
 \usepackage{moresize}  % Provides more font size commands (\HUGE and \ssmall).
+\usepackage{ifthen}  % Tests.
 
 
 % PAGE LAYOUT
@@ -176,13 +177,26 @@
 % #1: Date text.
 % #2: Bold left-aligned entry heading.
 % #3: Bold right-aligned entry qualifier.
-% #4: Entry content.
-\newcommand{\entry}[4]{
-    \parbox[t]{0.175\textwidth}{
-        #1  % Leftmost entry date(s) text
-    }
-    &\parbox[t]{0.825\textwidth}{
-        \textbf{#2}  % Entry heading text
+% #4: URL.
+% #5: Tech stack list.
+% #6: Entry content.
+\newcounter{idx}
+\newcommand{\entry}[6]{
+    \setcounter{idx}{0}
+    \begin{minipage}[t]{0.175\textwidth}
+        #1\\  % Leftmost entry date(s) text.
+        \raggedright
+        \foreach \x in {#5} {  % Tech stack list.
+            \ifthenelse
+                {\theidx = 0}
+                {}
+                {\slashsep}
+            \texttt{\x}
+            \addtocounter{idx}{1}
+        }
+    \end{minipage}
+    &\begin{minipage}[t]{0.825\textwidth}
+        \textbf{#2}  % Entry heading text.
         \hfill
         { \footnotesize \textbf{\textcolor{black}{#3}} }\\  % Qualifier text.
         #4  % Entry description text
