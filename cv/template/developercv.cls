@@ -221,5 +221,20 @@
     \end{minipage}\\\\
 }
 
+% Command to add a form of itemized list to an entry's description.
+% #1: Comma-seprated list of item texts.
+\newcommand{\entryitems}[1]{
+    \foreach \str in {#1} {
+        \begin{tikzpicture}[baseline=-0.75ex]
+            \filldraw[
+                draw=black,
+                fill=none,
+                line width=1.2pt
+            ] (0, 0) circle (0.07);
+        \end{tikzpicture}
+        \str\\
+    }
+}
+
 % Command to output a separator slash between lists, e.g. '  /  '.
 \newcommand{\slashsep}{\hspace{0mm}/\hspace{1mm}}
