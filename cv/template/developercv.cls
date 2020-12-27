@@ -59,8 +59,13 @@
             }%
         }%
     }%
-    \hspace{0.2cm}  % Whitespace.
-    \vcenteredhbox{\textcolor{black}{#3}}  % Text.
+    \ifthenelse
+        {\equal{#3}{}}
+        {}
+        {
+            \hspace{0.2cm}  % Whitespace.
+            \vcenteredhbox{\textcolor{black}{#3}}  % Text.
+        }
 }
 
 
