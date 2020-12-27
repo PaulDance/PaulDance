@@ -271,3 +271,19 @@
 
 % Command to output a separator slash between lists, e.g. '  /  '.
 \newcommand{\slashsep}{\hspace{0mm}/\hspace{1mm}}
+
+
+% Interests
+\usepackage{fancybox}
+
+% #1: Comma-seperated list of hobbies.
+\newcommand{\boxlist}[1]{
+    \foreach \str in {#1} {
+        \shadowbox{\str}
+    }
+}
+
+\NewMultilangCmd{\BoxList}{
+    command=\boxlist,
+    margs={list},
+}
