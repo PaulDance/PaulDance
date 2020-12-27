@@ -1,6 +1,6 @@
 % CLASS CONFIGURATION.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{developercv}[Developer CV]
+\ProvidesClass{dev-cv}[Developer CV]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
 \LoadClass{extarticle}
