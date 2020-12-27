@@ -103,7 +103,7 @@
         \pgfmathparse{#1}
         \let\barsize\pgfmathresult
 
-        \pgfmathparse{\barsize*##2/100}
+        \pgfmathparse{\barsize * ##2 / 100}
         \let\barone\pgfmathresult
 
         \pgfmathparse{(\barwidth * \thebarcount) + (\barsep * \thebarcount)}
@@ -115,7 +115,7 @@
             (\barone,-\barx-\barwidth);
 
         \node [label=180:\colorbox{black}{\textcolor{white}{##1}}]
-            at (0,-\barx-0.175) {};
+            at (0, -\barx - 0.175) {};
         \addtocounter{barcount}{1}
     }
 
