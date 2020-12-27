@@ -1,6 +1,8 @@
 % CLASS CONFIGURATION.
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{dev-cv}[Developer CV]
+\DeclareOption{english}{\def\LANG{english}}
+\DeclareOption{french}{\def\LANG{french}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
 \LoadClass{extarticle}
@@ -12,6 +14,14 @@
 \pagestyle{empty}  % No headers or footers.
 \usepackage{moresize}  % Provides more font size commands (\HUGE and \ssmall).
 \usepackage{ifthen}  % Tests.
+\usepackage[\LANG]{babel}
+\usepackage[languages={french, english}]{multilang}
+
+\newcommand{\self}[1]{ #1 }
+\NewMultilangCmd{\Text}{
+    command=\self,
+    margs={t},
+}
 
 
 % PAGE LAYOUT
@@ -70,6 +80,11 @@
         }
 }
 
+\NewMultilangCmd{\Icon}{
+    command=\icon,
+    margs={name, size, text},
+}
+
 
 % GRAPHICS DEFINITIONS
 \usepackage{tikz}  % Required for creating the plots.
@@ -121,6 +136,11 @@
         \addtocounter{barcount}{1}
     }
 
+    \NewMultilangCmd{\BarItem}{
+        command=\baritem,
+        margs={label, width},
+    }
+
     \begin{tikzpicture}
         \setcounter{barcount}{0}
         }{
@@ -156,7 +176,7 @@
 
 % CUSTOM SECTIONS
 % Command to output section title headings.
-% #1: Section text.
+% #1: Section title.
 \newcommand{\cvsect}[1]{
     \vspace{\baselineskip}  % Whitespace.
     \colorbox{black}{
@@ -164,6 +184,11 @@
             \MakeUppercase{\textbf{#1}}  % Section title.
         }
     }\\
+}
+
+\NewMultilangCmd{\CvSect}{
+    command=\cvsect,
+    margs={title},
 }
 
 
@@ -219,6 +244,11 @@
     \end{minipage}\\\\
 }
 
+\NewMultilangCmd{\Entry}{
+    command=\entry,
+    margs={date, head, qual, url, tech, text},
+}
+
 % Command to add a form of itemized list to an entry's description.
 % #1: Comma-seprated list of item texts.
 \newcommand{\entryitems}[1]{
@@ -232,6 +262,11 @@
         \end{tikzpicture}
         \str\\
     }
+}
+
+\NewMultilangCmd{\EntryItems}{
+    command=\entryitems,
+    margs={items},
 }
 
 % Command to output a separator slash between lists, e.g. '  /  '.
