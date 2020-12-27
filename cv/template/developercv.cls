@@ -203,6 +203,5 @@
     }\\\\
 }
 
-
-% Command to output a separator slash between lists, e.g. '  /  '
-\newcommand{\slashsep}{\hspace{3mm}/\hspace{3mm}}
+% Command to output a separator slash between lists, e.g. '  /  '.
+\newcommand{\slashsep}{\hspace{0mm}/\hspace{1mm}}
