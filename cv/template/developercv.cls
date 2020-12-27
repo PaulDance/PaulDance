@@ -5,8 +5,6 @@
 \ProcessOptions\relax
 \LoadClass{extarticle}
 
-\newcommand{\lorem}{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.} % Dummy text
-
 
 % PACKAGES AND OTHER DOCUMENT CONFIGURATIONS.
 \setlength{\parindent}{0mm}  % Suppress paragraph indentation.
