@@ -164,7 +164,7 @@
 \usepackage{longtable}  % Required for tables that span multiple pages.
 \setlength{\LTpre}{0pt}  % Remove default whitespace before longtable.
 \setlength{\LTpost}{0pt}  % Remove default whitespace after longtable.
-\setlength{\tabcolsep}{0pt}  % No spacing between table columns.
+\setlength{\tabcolsep}{2pt}  % Small spacing between table columns.
 
 % Environment to hold a new list of entries.
 \newenvironment{entrylist}{
