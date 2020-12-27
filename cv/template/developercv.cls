@@ -198,9 +198,18 @@
     &\begin{minipage}[t]{0.825\textwidth}
         \textbf{#2}  % Entry heading text.
         \hfill
-        { \footnotesize \textbf{\textcolor{black}{#3}} }\\  % Qualifier text.
-        #4  % Entry description text
-    }\\\\
+        \href{#4}{
+            { \footnotesize \textbf{\textcolor{black}{#3}} }  % Qualifier text.
+            \ifthenelse
+                {\equal{#4}{}}
+                {}
+                {
+                    \icon{ExternalLink}{8}{}
+                    \vspace{2pt}
+                }
+        }\\
+        #6  % Entry description text.
+    \end{minipage}\\\\
 }
 
 % Command to output a separator slash between lists, e.g. '  /  '.
