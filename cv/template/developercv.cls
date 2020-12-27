@@ -44,17 +44,21 @@
 
 % Icon command.
 \usepackage{fontawesome}
+\usepackage{graphicx}
 
 % Command to output an icon in a black square box with text to the right.
 % #1: FontAwesome icon name.
 % #2: Box size.
 % #3: Text.
 \newcommand{\icon}[3]{
+    \pgfmathparse{0.8 * #2}
     \vcenteredhbox{%
         \colorbox{black}{%
             \makebox(#2, #2){%
-                \textcolor{white}{%
-                    \large\csname fa#1\endcsname  % Icon and box.
+                \resizebox{\pgfmathresult pt}{!}{%
+                    \textcolor{white}{%
+                        \csname fa#1\endcsname  % Icon and box.
+                    }%
                 }%
             }%
         }%
