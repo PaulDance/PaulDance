@@ -17,7 +17,7 @@
 %
 \input{"common/contact"}
 
-\vspace{0.5cm}
+\vspace{0.1cm}
 
 
 % INTRODUCTION, SKILLS AND TECHNOLOGIES
@@ -26,79 +26,84 @@
     title/french={Introduction},
 }
 
-\begin{minipage}[t]{0.4\textwidth}
-    \vspace{-\baselineskip}
-    \lorem \lorem \lorem \lorem \lorem\\
-\end{minipage}
-%
-\hfill
+\Text{
+    t={\lorem \lorem \lorem \lorem}
+}\\
+
+
+% Left panel.
 \begin{minipage}[t]{0.5\textwidth}
     \vspace{-\baselineskip}
-    \input{"common/skills"}
+
+    % EXPERIENCE
+    \cvsect{Experience}
+
+    \begin{entrylist}
+        \entry
+            {2017 -- 3/2018}
+            {Front-end developer}
+            {Big Corporation Name Inc.}
+            {}
+            {}
+            {\lorem \lorem \lorem\\ \texttt{node.js}\slashsep\texttt{Vue.js}\slashsep\texttt{Electron}}
+        \entry
+            {2015 -- 2018\\\footnotesize{part time}}
+            {Full stack developer}
+            {Famous Eshop Inc.}
+            {}
+            {}
+            {\lorem\lorem\\ \texttt{PHP}\slashsep\texttt{JS}\slashsep\texttt{MariaDB}\slashsep\texttt{Linux}}
+        \entry
+            {2013 -- 2014\\{\footnotesize part time }}
+            {Junior PHP Developer}
+            {example.com}
+            {https://example.com}
+            {PHP, Laravel, Rust, Scheme, Vue}
+            {\entryitems{\lorem, \lorem}}
+    \end{entrylist}
+
+    % EDUCATION
+    \cvsect{Education}
+
+    \begin{entrylist}
+        \entry
+            {2013 -- 2017}
+            {Master's Degree}
+            {Another University Name}
+            {}
+            {}
+            {\lorem\lorem\lorem}
+        \entry
+            {2014}
+            {Postgraduate Diploma}
+            {A University Name}
+            {}
+            {}
+            {\lorem\lorem}
+        \entry
+            {2007 -- 2013}
+            {Bachelor's Degree}
+            {A University Name}
+            {}
+            {}
+            {\lorem\lorem}
+    \end{entrylist}
 \end{minipage}
-
-
-% EXPERIENCE
-\cvsect{Experience}
-
-\begin{entrylist}
-    \entry
-        {2017 -- 3/2018}
-        {Front-end developer}
-        {Big Corporation Name Inc.}
-        {}
-        {}
-        {\lorem \lorem \lorem\\ \texttt{node.js}\slashsep\texttt{Vue.js}\slashsep\texttt{Electron}}
-    \entry
-        {2015 -- 2018\\\footnotesize{part time}}
-        {Full stack developer}
-        {Famous Eshop Inc.}
-        {}
-        {}
-        {\lorem\lorem\\ \texttt{PHP}\slashsep\texttt{JS}\slashsep\texttt{MariaDB}\slashsep\texttt{Linux}}
-    \entry
-        {2013 -- 2014\\{\footnotesize part time }}
-        {Junior PHP Developer}
-        {example.com}
-        {https://example.com}
-        {PHP, Laravel, Rust, Scheme, Vue}
-        {\entryitems{\lorem, \lorem}}
-\end{entrylist}
-
-
-% EDUCATION
-\cvsect{Education}
-
-\begin{entrylist}
-    \entry
-        {2013 -- 2017}
-        {Master's Degree}
-        {Another University Name}
-        {}
-        {}
-        {\lorem\lorem\lorem}
-    \entry
-        {2014}
-        {Postgraduate Diploma}
-        {A University Name}
-        {}
-        {}
-        {\lorem\lorem}
-    \entry
-        {2007 -- 2013}
-        {Bachelor's Degree}
-        {A University Name}
-        {}
-        {}
-        {\lorem\lorem}
-\end{entrylist}
-
-
-% ADDITIONAL INFORMATION
-\begin{minipage}[t]{0.3\textwidth}
+%
+% Right panel.
+\hfill
+\begin{minipage}[t]{0.44\textwidth}
     \vspace{-\baselineskip}
+
+    \CvSect{
+        title/english={Skills},
+        title/french={Compétences},
+    }
+    \input{"common/skills"}
+
+    % ADDITIONAL INFORMATION
     \cvsect{Languages}
-    \begin{barchart}{3.5}
+    \begin{barchart}{5.5}
         \baritem{
             \Text{
                 t/english={French},
@@ -108,11 +113,7 @@
         \baritem{English}{80}
         \baritem{Chinese}{40}
     \end{barchart}
-\end{minipage}
-%
-\hfill
-\begin{minipage}[t]{0.3\textwidth}
-    \vspace{-\baselineskip}
+
     \cvsect{Hobbies}
     \BoxList{
         list/english={Paragliding, Table-tennis, Scubadiving},
