@@ -71,13 +71,10 @@
             }%
         }%
     }%
-    \ifthenelse
-        {\equal{#3}{}}
-        {}
-        {
-            \hspace{0.2cm}  % Whitespace.
-            \vcenteredhbox{\textcolor{black}{#3}}  % Text.
-        }
+    \ifthenelse {\equal{#3}{}} {} {  % If #3 is not empty.
+        \hspace{0.2cm}  % Whitespace.
+        \vcenteredhbox{\textcolor{black}{#3}}  % Text.
+    }
 }
 
 \NewMultilangCmd{\Icon}{
@@ -232,25 +229,19 @@
         \href{#4}{
             \hspace*{\fill}
             \mbox{
-                \ifthenelse
-                    {\equal{#3}{}}
-                    {}
-                    {
-                        \begin{footnotesize}
-                            \textcolor{black}{
-                                \underline{
-                                    \textbf{#3}  % Qualifier text.
-                                }
+                \ifthenelse {\equal{#3}{}} {} {
+                    \begin{footnotesize}
+                        \textcolor{black}{
+                            \underline{
+                                \textbf{#3}  % Qualifier text.
                             }
-                        \end{footnotesize}
-                    }
-                \ifthenelse
-                    {\equal{#4}{}}
-                    {}
-                    {
-                        \icon{ExternalLink}{8}{}
-                        \vspace{2pt}
-                    }
+                        }
+                    \end{footnotesize}
+                }
+                \ifthenelse {\equal{#4}{}} {} {
+                    \icon{ExternalLink}{8}{}
+                    \vspace{2pt}
+                }
             }
         }\\
         #6  % Entry description text.
