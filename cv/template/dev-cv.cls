@@ -234,7 +234,18 @@
         \href{#4}{
             \hspace*{\fill}
             \mbox{
-                { \footnotesize \textbf{\textcolor{black}{#3}} }  % Qualifier text.
+                \ifthenelse
+                    {\equal{#3}{}}
+                    {}
+                    {
+                        \begin{footnotesize}
+                            \textcolor{black}{
+                                \underline{
+                                    \textbf{#3}  % Qualifier text.
+                                }
+                            }
+                        \end{footnotesize}
+                    }
                 \ifthenelse
                     {\equal{#4}{}}
                     {}
