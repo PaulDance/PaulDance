@@ -213,19 +213,17 @@
 % #4: URL.
 % #5: Tech stack list.
 % #6: Entry content.
-\newcounter{idx}
 \newcommand{\entry}[6]{
-    \setcounter{idx}{0}
     \begin{minipage}[t]{0.175\textwidth}
         #1\\  % Leftmost entry date(s) text.
-        \raggedright
-        \foreach \x in {#5} {  % Tech stack list.
-            \ifthenelse
-                {\theidx = 0}
-                {}
-                {\slashsep}
-            \texttt{\textbf{\x}}
-            \addtocounter{idx}{1}
+        \ifthenelse {\equal{#5}{}} {} {
+            \shadowbox{
+                \parbox{0.68\textwidth}{
+                    \foreach \x in {#5} {  % Tech stack list.
+                        \texttt{\textbf{\x}}
+                    }
+                }
+            }
         }
     \end{minipage}
     &\begin{minipage}[t]{0.825\textwidth}
@@ -283,9 +281,6 @@
     command=\entryitems,
     margs={items},
 }
-
-% Command to output a separator slash between lists, e.g. '  /  '.
-\newcommand{\slashsep}{/\hspace{0.4mm}}
 
 
 % Interests
