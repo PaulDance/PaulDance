@@ -232,14 +232,17 @@
         \textbf{#2}  % Entry heading text.
         \hfill
         \href{#4}{
-            { \footnotesize \textbf{\textcolor{black}{#3}} }  % Qualifier text.
-            \ifthenelse
-                {\equal{#4}{}}
-                {}
-                {
-                    \icon{ExternalLink}{8}{}
-                    \vspace{2pt}
-                }
+            \hspace*{\fill}
+            \mbox{
+                { \footnotesize \textbf{\textcolor{black}{#3}} }  % Qualifier text.
+                \ifthenelse
+                    {\equal{#4}{}}
+                    {}
+                    {
+                        \icon{ExternalLink}{8}{}
+                        \vspace{2pt}
+                    }
+            }
         }\\
         #6  % Entry description text.
     \end{minipage}\\\\
