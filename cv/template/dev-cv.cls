@@ -181,6 +181,7 @@
     \vspace{\baselineskip}  % Whitespace.
     \colorbox{black}{
         \textcolor{white}{
+            \Large
             \MakeUppercase{\textbf{#1}}  % Section title.
         }
     }\\
