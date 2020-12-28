@@ -224,7 +224,7 @@
                 {\theidx = 0}
                 {}
                 {\slashsep}
-            \texttt{\x}
+            \texttt{\textbf{\x}}
             \addtocounter{idx}{1}
         }
     \end{minipage}
