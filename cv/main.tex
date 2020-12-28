@@ -137,30 +137,45 @@
     \end{entrylist}
 
     % EDUCATION
-    \cvsect{Education}
+    \CvSect{
+        title/english={Education},
+        title/french={Formation},
+    }
 
     \begin{entrylist}
-        \entry
-            {2013 -- 2017}
-            {Master's Degree}
-            {Another University Name}
-            {}
-            {}
-            {\lorem\lorem\lorem}
-        \entry
-            {2014}
-            {Postgraduate Diploma}
-            {A University Name}
-            {}
-            {}
-            {\lorem\lorem}
-        \entry
-            {2007 -- 2013}
-            {Bachelor's Degree}
-            {A University Name}
-            {}
-            {}
-            {\lorem\lorem}
+        \Entry{
+            head/english={
+                3-year Master’s level degree in Computer Science
+                ("Engineer school"), major in Cybersecurity
+            },
+            head/french={
+                École d'ingénieur en informatique, spécialisation en sécurité
+            },
+            date/english={09/2018 -- Present},
+            date/french={09/2018 -- Présent},
+            qual={Télécom SudParis},
+            url={https://www.telecom-sudparis.eu/},
+            tech={Java, C, PHP},
+            text={},
+        }
+        \Entry{
+            head/english={
+                2-year Intensive university-level preparation in mathematics
+                and physics for entrance exams to French equivalent to A-levels
+                ("Preparatory classes")
+            },
+            head/french={
+                Classes Préparatoires aux Grandes Écoles, option MP
+            },
+            date={09/2016 -- 06/2018},
+            qual={Lycée Janson de Sailly},
+            url={https://www.janson-de-sailly.fr/},
+            tech={Python, OCaml, SQL},
+            text=\EntryItems{
+                items/english={Specialization in computer science},
+                items/french={Option informatique},
+            },
+        }
     \end{entrylist}
 \end{minipage}
 %
