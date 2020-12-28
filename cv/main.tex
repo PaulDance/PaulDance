@@ -41,20 +41,6 @@
     },
 }\\
 
-%        \Entry{
-%            head/english={},
-%            head/french={},
-%            date={ -- },
-%            qual={},
-%            url={},
-%            tech={},
-%            text=\EntryItems{
-%                items/english={
-%                },
-%                items/french={
-%                },
-%            },
-%        }
 
 % Left panel.
 \begin{minipage}[t]{0.5\textwidth}
@@ -171,37 +157,8 @@
             },
         }
     \end{entrylist}
-\end{minipage}
-%
-% Right panel.
-\hfill
-\begin{minipage}[t]{0.44\textwidth}
-    \vspace{-\baselineskip}
 
-    \CvSect{
-        title/english={Skills},
-        title/french={Compétences},
-    }
-    \input{"common/skills"}
-
-    \CvSect{
-        title/english={Projects},
-        title/french={Projets},
-    }
-    \begin{entrylist}
-        \Entry{
-            date={2018 -- Present},
-            head={PHP web site},
-            qual={},
-            tech={},
-            url={https://example.com},
-            text=\EntryItems{
-                items={},
-            },
-        }
-    \end{entrylist}
-
-    % ADDITIONAL INFORMATION
+    % LANGUAGES
     \CvSect{
         title/english={Languages},
         title/french={Langues},
@@ -224,6 +181,7 @@
         }
     \end{barchart}
 
+    % INTERESTS
     \CvSect{
         title/english={Interests},
         title/french={Loisirs},
@@ -238,6 +196,132 @@
             Voile, Escalade
         },
     }
+\end{minipage}
+%
+% Right panel.
+\hfill
+\begin{minipage}[t]{0.44\textwidth}
+    \vspace{-\baselineskip}
+
+    \CvSect{
+        title/english={Skills},
+        title/french={Compétences},
+    }
+    \input{"common/skills"}
+
+    \CvSect{
+        title/english={Projects},
+        title/french={Projets},
+    }
+    \begin{entrylist}
+        \Entry{
+            head/english={Implementation of QUIC in Scapy},
+            head/french={Implémentation de QUIC dans Scapy},
+            date/english={09/2020 -- Present},
+            date/french={09/2020 -- Présent},
+            qual={},
+            url={https://github.com/PaulDance/scapy/tree/quic},
+            tech={Python, Scapy},
+            text=\EntryItems{
+                items/english={
+                    Implemented most packets and cryptographic operations.
+                },
+                items/french={
+                    Opérations de formation{,} d'analyse et de chiffrement de
+                    paquets.
+                },
+            },
+        }
+		\Entry{
+            head/english={
+                Cassiopeia project -- Overhaul of a utility software for
+                SES-S17 Internet access satellite asset managers
+            },
+            head/french={
+                Projet Cassiopée -- Refonte d'un logiciel utilitaire pour
+                les gérants des ressources du satellite Internet SES-S17
+            },
+            date={01/2020 -- 06/2020},
+            qual={},
+            url={https://www.ses.com/},
+            tech={Python, Dash, Plotly, Pandas},
+            text=\EntryItems{
+                items/english={
+                    Added various functionalities to the capacity mapping.,
+                    Integrated GUI to edit input data and visualize results.
+                },
+                items/french={
+                    Ajout de nombreuses fonctionnalités au calcul de capacité.,
+                    Implémentation d'une interface graphique intégrée pour
+                    modifier les données d'entrée et visualiser les résultats.
+                },
+            },
+        }
+        \Entry{
+            head/english={
+                Dynamic room reservation website with a Symfony back-end and a
+                Bootstrap front-end
+            },
+            head/french={
+                Site web dynamique de réservation de chambres avec un
+                {\it back-end} Symfony et un {\it front-end} Bootstrap
+            },
+            date={10/2019 -- 12/2019},
+            qual={},
+            url={https://github.com/PaulDance/Yacc},
+            tech={PHP, Symfony, TBS},
+            text=\EntryItems{
+                items/english={
+                    Creation of rooms by owners and regions by back-office.,
+                    Search and booking system for logged-in clients.
+                },
+                items/french={
+                    Création de chambres par des propriétaires et de régions
+                    par des collaborateurs.,
+                    Fonctionnalités de recherche et de réservation pour des
+                    clients connectés à un compte enregistré.
+                },
+            },
+        }
+        \Entry{
+            head/english={GATE project -- Tortuino},
+            head/french={Projet GATE -- Tortuino},
+            date={10/2018 -- 06/2019},
+            qual={},
+            url={https://gate.wp.telecom-sudparis.eu/projet/ateliers-arduino/},
+            tech={Arduino, C++, Robotics},
+            text=\EntryItems{
+                items/english={
+					Created the activities for the two-day course.,
+                    Modeled and built a complete Arduino turtle robot.
+                },
+                items/french={
+                    Création des activités pour le stage de deux jours.,
+                    Modelisation et réalisation du robot tortue Arduino complet.
+                },
+            },
+        }
+        \Entry{
+            head/english={Study on solving labyrinths with local vision only},
+            head/french={TIPE -- Résolution de labyrinthes en vision locale},
+            date={11/2015 -- 08/2018},
+            qual={},
+            url={https://github.com/PaulDance/labyrinth-solving},
+            tech={Python, SQLite, Scipy},
+            text=\EntryItems{
+                items/english={
+                    Implemented complete labyrinth exploration algorithms.,
+                    Ran statistical analysis to evaluate a potential best.
+                },
+                items/french={
+                    Implémentation complète d'algorithmes d'exploration de
+                    labyrinthes.,
+                    Analyse statistique pour évaluer un potentiel meilleur.
+                },
+            },
+        }
+
+    \end{entrylist}
 \end{minipage}
 
 \end{document}
