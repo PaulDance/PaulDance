@@ -245,7 +245,7 @@
             }
         }\\
         #6  % Entry description text.
-    \end{minipage}\\\\
+    \end{minipage}\\
 }
 
 \NewMultilangCmd{\Entry}{
