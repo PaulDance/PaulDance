@@ -47,36 +47,93 @@
     },
 }\\
 
+%        \Entry{
+%            head/english={},
+%            head/french={},
+%            date={ -- },
+%            qual={},
+%            url={},
+%            tech={},
+%            text=\EntryItems{
+%                items/english={
+%                },
+%                items/french={
+%                },
+%            },
+%        }
 
 % Left panel.
 \begin{minipage}[t]{0.5\textwidth}
     \vspace{-\baselineskip}
 
     % EXPERIENCE
-    \cvsect{Experience}
+    \CvSect{
+        title/english={Experience},
+        title/french={Expérience},
+    }
 
     \begin{entrylist}
-        \entry
-            {2017 -- 3/2018}
-            {Front-end developer}
-            {Big Corporation Name Inc.}
-            {}
-            {}
-            {\lorem \lorem \lorem\\ \texttt{node.js}\slashsep\texttt{Vue.js}\slashsep\texttt{Electron}}
-        \entry
-            {2015 -- 2018\\\footnotesize{part time}}
-            {Full stack developer}
-            {Famous Eshop Inc.}
-            {}
-            {}
-            {\lorem\lorem\\ \texttt{PHP}\slashsep\texttt{JS}\slashsep\texttt{MariaDB}\slashsep\texttt{Linux}}
-        \entry
-            {2013 -- 2014\\{\footnotesize part time }}
-            {Junior PHP Developer}
-            {example.com}
-            {https://example.com}
-            {PHP, Laravel, Rust, Scheme, Vue}
-            {\entryitems{\lorem, \lorem}}
+        \Entry{
+            head/english={3-month technical internship},
+            head/french={Stage technique de trois mois},
+            date={06/2019 -- 08/2019},
+            qual={Quantalys},
+            url={https://www.quantalys.com},
+            tech={.NET, C\#, SSIS},
+            text=\EntryItems{
+                items/english={
+                    Added previously ignored but important data points to
+                    various input streams' processing.,
+                    Implemented a verification system that reports or even
+                    deletes inconsistent input data.
+                },
+                items/french={
+                    Ajout de nombreux points de données important mais
+                    précédemment ignorés à plusieurs flux d'entrée.,
+                    Implémentation d'un système de vérification qui avertit
+                    voire même supprime des données d'entrée incohérentes.
+                },
+            },
+        }
+        \Entry{
+            head/english={3-week discovery internship},
+            head/french={Stage de découverte (3 sem)},
+            date={06/2013 -- 07/2013},
+            qual={L'Oréal R\&D},
+            url={https://www.loreal.com/research-and-innovation},
+            tech={},
+            text=\EntryItems{
+                items/english={
+                    Thorough visit of the research center.,
+                    Learned about the whole process for creating a full
+                    product.
+                },
+                items/french={
+                    Visite détaillée du centre de recherche.,
+                    Découverte du procédé complet de création d'un produit.
+                },
+            },
+        }
+        \Entry{
+            head/english={1-week discovery internship},
+            head/french={Stage de découverte (1 sem)},
+            date={06/2012 -- 06/2012},
+            qual={Dassault Sys.},
+            url={https://www.3ds.com/},
+            tech={},
+            text=\EntryItems{
+                items/english={
+                    Presentation of Dassault Systems' leading products.,
+                    Meeting with the main collaborators ensuring their
+                    functionality.
+                },
+                items/french={
+                    Présentation des produits majeurs de Dassault Systèmes.,
+                    Rencontre avec les collaborateurs principaux assurant leur
+                    bon fonctionnement.
+                },
+            },
+        }
     \end{entrylist}
 
     % EDUCATION
