@@ -7,7 +7,7 @@
 
 - 🔭 I’m currently working on [Solving Advent of Code](https://github.com/club-code/CodingChallenges)
 
-- 👯 I’m looking to collaborate on [My XR project](https://github.com/PaulDance/xr)
+- 👯 I’m looking to collaborate on [My XR Project](https://github.com/PaulDance/xr)
 
 - 📫 How to reach me: **paul.mabileau@telecom-sudparis.eu**
 
