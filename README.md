@@ -9,6 +9,8 @@
 
 - 👯 I’m looking to collaborate on [My XR project](https://github.com/PaulDance/xr)
 
+- 📫 How to reach me **paul.mabileau@telecom-sudparis.eu**
+
 - ⚡ Fun fact **I play Kendama!**
 
 <h3 align="left">Connect with me:</h3>
