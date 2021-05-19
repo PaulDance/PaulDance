@@ -47,19 +47,19 @@
          height="40"/>
 </a>
 <a href="https://getbootstrap.com" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/bootstrap/bootstrap-plain.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
          alt="Bootstrap"
          width="40"
          height="40"/>
 </a>
 <a href="https://www.cprogramming.com/" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/c/c-original.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/c/c-original.svg"
          alt="C"
          width="40"
          height="40"/>
 </a>
 <a href="https://www.docker.com/" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/docker/docker-original-wordmark.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/docker/docker-original-wordmark.svg"
          alt="Docker"
          width="40"
          height="40"/>
@@ -77,7 +77,7 @@
          height="40"/>
 </a>
 <a href="https://www.java.com" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/java/java-original-wordmark.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/java/java-original-wordmark.svg"
          alt="Java"
          width="40"
          height="40"/>
@@ -101,31 +101,31 @@
          height="40"/>
 </a>
 <a href="https://www.linux.org/" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/linux/linux-original.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/linux/linux-original.svg"
          alt="Linux"
          width="40"
          height="40"/>
 </a>
 <a href="https://www.postgresql.org" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/postgresql/postgresql-original-wordmark.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/postgresql/postgresql-original-wordmark.svg"
          alt="PostgreSQL"
          width="40"
          height="40"/>
 </a>
 <a href="https://www.python.org" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/python/python-original.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/python/python-original.svg"
          alt="Python"
          width="40"
          height="40"/>
 </a>
 <a href="https://reactjs.org/" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/react/react-original-wordmark.svg"
          alt="React"
          width="40"
          height="40"/>
 </a>
 <a href="https://www.rust-lang.org" target="_blank">
-    <img src="https://devicons.github.io/devicon/devicon.git/icons/rust/rust-plain.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/rust/rust-plain.svg"
          alt="Rust"
          width="40"
          height="40"/>
