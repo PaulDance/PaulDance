@@ -25,7 +25,7 @@
 <p align="left">
 <a href="https://linkedin.com/in/paul-mabileau-b70ab3178" target="_blank">
     <img align="center"
-         src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg"
+         src="https://github.com/devicons/devicon/raw/master/icons/linkedin/linkedin-original.svg"
          alt="Paul Mabileau"
          height="30"
          width="40"/>
@@ -41,7 +41,7 @@
          height="40"/>
 </a>
 <a href="https://www.gnu.org/software/bash/" target="_blank">
-    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/bash/bash-original.svg"
          alt="Bash"
          width="40"
          height="40"/>
@@ -137,7 +137,7 @@
          height="40"/>
 </a>
 <a href="https://symfony.com" target="_blank">
-    <img src="https://symfony.com/logos/symfony_black_03.svg"
+    <img src="https://github.com/devicons/devicon/raw/master/icons/symfony/symfony-original-wordmark.svg"
          alt="Symfony"
          width="40"
          height="40"/>
