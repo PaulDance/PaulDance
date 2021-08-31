@@ -1,0 +1,119 @@
+\documentclass[11pt, oneside, a4paper, titlepage]{report}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage{fancyvrb}
+\usepackage[toc,acronym,nopostdot]{glossaries}
+\usepackage[export]{adjustbox}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{pbox}
+\usepackage[main=french]{babel}
+\usepackage{moresize}
+\usepackage{xcolor}
+\usepackage{soulutf8}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{calc}
+\usepackage{geometry}
+
+\geometry{%
+    paper=a4paper,  % Paper size, change to letterpaper for US letter size.
+    top=2cm,  % Top margin.
+    bottom=2cm,  % Bottom margin.
+    left=2cm,  % Left margin.
+    right=2cm,  % Right margin.
+    headheight=0.75cm,  % Header height.
+    footskip=1cm,  % Space from the bottom margin to the baseline of the footer.
+    headsep=0.5cm,  % Space from the top margin to the baseline of the header.
+    %showframe,  % Uncomment to show how the type block is set on the page.
+}
+
+\usepackage{biblatex}
+\addbibresource{refs.bib}
+\makeglossaries{}
+\setacronymstyle{long-short-desc}
+\loadglsentries{glossary}
+
+\input{include/vars}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \input{include/frontpage}
+\end{titlepage}
+
+\tableofcontents
+
+\input{include/abstract}
+
+\chapter{Remerciements}%
+\label{cha:ackn}
+
+\chapter{Introduction}%
+\label{cha:intro}
+
+\section{Stage}%
+\label{sec:intro-stage}
+
+\section{Présentation de l'entreprise}%
+\label{sec:intro-entreprise}
+
+\section{Acteurs du marché}%
+\label{sec:intro-acteurs}
+
+\chapter{Mission}%
+\label{cha:mission}
+
+\section{Objectifs}%
+\label{sec:mission-objectifs}
+
+\section{Relations humaines et management}%
+\label{sec:mission-rhm}
+
+\chapter{Responsabilité sociétale des entreprises}%
+\label{cha:rse}
+
+\section{Economie}%
+\label{sec:rse-eco}
+
+\section{Social}%
+\label{sec:rse-social}
+
+\section{Environnement}%
+\label{sec:rse-env}
+
+\section{Gouvernance}%
+\label{sec:rse-gouv}
+
+\section{Santé et Sécurité au Travail}%
+\label{sec:rse-sst}
+
+\chapter{Bilan}%
+\label{cha:bilan}
+
+\section{Retour d'expérience}%
+\label{sec:bilan-retexp}
+
+\chapter{Conclusion}%
+\label{cha:conclu}
+
+\section{Perspectives}%
+\label{sec:conclu-persp}
+
+\chapter{Annexes}%
+\label{cha:annexes}
+
+\printbibliography[title={Références}]
+
+\listoffigures
+
+\glsaddall{}
+\printglossary[type=main, title=Glossaire, toctitle=Glossaire]
+\printglossary[type=\acronymtype]
+
+\end{document}
