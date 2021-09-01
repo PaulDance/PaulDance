@@ -7,3 +7,12 @@
 **/*.pdf
 **/*.fls
 **/*.fdb_latexmk
+**/*.acn
+**/*.bbl
+**/*.bcf
+**/*.blg
+**/*.glo
+**/*.ist
+**/*.lof
+**/*.run.xml
+**/*.toc
