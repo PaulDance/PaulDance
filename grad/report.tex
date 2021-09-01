@@ -1,6 +1,7 @@
 \documentclass[12pt, oneside, a4paper, titlepage]{report}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
+\usepackage{nameref}
 \usepackage{csquotes}
 \usepackage{fancyvrb}
 \usepackage[toc,acronym]{glossaries}
@@ -13,6 +14,7 @@
 \usepackage{moresize}
 \usepackage{xcolor}
 \usepackage{soulutf8}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{graphicx}
@@ -116,6 +118,55 @@ le cadre d'un projet dédié.
 
 \section{Présentation de l'entreprise}%
 \label{sec:intro-entreprise}
+
+\Gls{ocd} SAS est une filiale d'\gls{obs}, elle-même filiale et marque
+commerciale du groupe Orange. \gls{ocd} est spécialisée dans la prestation de
+services en cybersécurité: elle accompagne les entreprises dans la sécurisation
+de leurs activités et de leurs données. L'entreprise a son siège dans le
+quartier de La Défense, en région parisienne et compte plus de 2500
+collaborateurs dont plus de 250 chercheurs et analystes à travers le monde,
+répartis dans 160 pays~\cite{ocd}.
+
+\glsentrytext{ocd} a été fondée en 2014 et dirigé jusqu'en avril 2021 par Michel
+Van Den Berghe. La marque est créée en 2016, regroupant les activités en
+cybersécurité d'Orange Consulting et d'Atheos, cabinet de conseil racheté en
+2014~\cite{rachat-atheos}.  La filiale a ensuite évoluée avec le rachat de Lexsi
+en 2016 puis SecureData et SecureLink en 2019 pour une valeur de 515 millions
+d'euros~\cite{rachat-securelink}. La direction est reprise en avril 2021 par
+Hugues Foulon.
+
+Financièrement et humainement, l'entreprise a connu une forte croissance depuis
+sa création. Entre 2016 et 2020, \gls{ocd} a eu une croissance de chiffre
+d'affaires de 21,3\% en moyenne, pour atteindre 300 millions d'euros en 2020 et
+768 millions d'euros en 2020 aussi en prenant en compte toutes les acquisitions
+de la filiale~\cite{ocd}. Le résultat net quant à lui a quelque peu oscillé au
+fur et à mesure des années, mais était par exemple de 2,984 millions d'euros en
+2016, 883 milliers d'euros en 2018 et 1,826 millions d'euros en 2020. L'effectif
+salarial est lui aussi en augmentation assez régulière depuis 2015 avec en
+moyenne 30,0\% de croissance jusqu'à fin 2020, pour atteindre plus de 1100
+employés début 2021~\cite{finances-ocd}. L'ensemble du détail des finances de
+l'entreprise est mis à disposition en annexe~\ref{tab:finances-ocd}.
+
+\glsentrytext{ocd} propose une notable variété de services informatiques en
+sécurité. Ils contiennent en particulier au niveau purement technique: du
+conseil, de l'audit organisationnel et de sécurité par tests d'intrusion, de la
+détection de menaces de manière transparente aux clients et des réponses
+automatisées, de la conception d'architectures nouvelles ou en vue d'une
+migration avec de l'intégration, et enfin du support. Il y a aussi des services
+plus orienté sur l'axe humain de la sécurité: des formations visant à
+sensibiliser les employées d'une entreprise cliente, mais aussi de l'assistance
+à la gestion de crise~\cite{ocd}. Puisque je n'ai fait partie que de l'équipe
+d'intégration, je ne serais en mesure de préciser la structure interne et le
+fonctionnement précis des autres équipes. Leur intervention dans le déroulé d'un
+projet complet sera cependant abordé en de plus amples détails dans la
+partie~\ref{cha:mission} --- \nameref{cha:mission}.
+
+En particulier, l'offre de filtrage délocalisé et réponse automatisée à incident
+est réalisée grâce à des infrastructures que l'entreprise a conçues et maintient
+soi-même. \gls{ocd} héberge au sein de 26 centres de détection dans 13 pays du
+monde de quoi analyser en moyenne 50 milliards d'évènements par jour, ce qui
+permet notamment de révéler et rapidement clotûrer en moyenne plus de 200 sites
+Web détectés malveillants par jour.
 
 \section{Acteurs du marché}%
 \label{sec:intro-acteurs}
