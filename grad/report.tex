@@ -3,7 +3,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{csquotes}
 \usepackage{fancyvrb}
-\usepackage[toc,acronym,nopostdot]{glossaries}
+\usepackage[toc,acronym]{glossaries}
 \usepackage[export]{adjustbox}
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -33,9 +33,9 @@
 
 \usepackage[sorting=none]{biblatex}
 \addbibresource{refs.bib}
-\makeglossaries{}
 \setacronymstyle{long-short-desc}
-\loadglsentries{glossary}
+\loadglsentries{glossary.tex}
+\makeglossaries{}
 
 \input{include/vars}
 
@@ -162,12 +162,12 @@ le cadre d'un projet dédié.
 \chapter{Annexes}%
 \label{cha:annexes}
 
-\printbibliography[title={Références}]
+\printbibliography[title=Références]
 
 \listoffigures
 
 \glsaddall{}
-\printglossary[type=main, title=Glossaire, toctitle=Glossaire]
-\printglossary[type=\acronymtype]
+\printglossary[type=main]
+\printglossary[type=\acronymtype, title=Acronymes]
 
 \end{document}
