@@ -1,6 +1,5 @@
 \documentclass[12pt, oneside, a4paper, titlepage]{report}
 \usepackage{url}
-\usepackage[hidelinks]{hyperref}
 \usepackage{nameref}
 \usepackage{csquotes}
 \usepackage{fancyvrb}
@@ -20,8 +19,27 @@
 \usepackage{graphicx}
 \usepackage[section]{placeins}
 \usepackage{calc}
-\usepackage{geometry}
 
+\usepackage{hyperref}
+\hypersetup{%
+    hidelinks,
+    pdfinfo = {%
+        Author = {Paul Mabileau},
+        Title = {Rapport de Mission en Entreprise},
+        Subject = {Stage de fin d'études},
+        Keywords = {%
+            rapport,
+            stage,
+            ingénieur,
+            intégration,
+            sécurité,
+            OCD,
+            Orange Cyberdéfense,
+        },
+    },
+}
+
+\usepackage{geometry}
 \geometry{%
     paper=a4paper,  % Paper size, change to letterpaper for US letter size.
     top=3cm,  % Top margin.
