@@ -17,6 +17,32 @@
     },
 }
 
+\newglossaryentry{ocd-build}{%
+    name=\textit{Build},
+    description={%
+        ou <<construction>>, c'est-à-dire <<implémentation>>: sous-équipe de
+        l'\gls{integ} chargée d'une partie de la conception de l'architecture à
+        mettre en place pour répondre aux besoins d'un client, puis surtout de
+        son implémentation effective qui nécessite souvent une intervention
+        matérielle et l'établissement de configurations logicielles cibles, pour
+        enfin réaliser une migration vers le nouveau système
+    },
+}
+
+\newglossaryentry{ocd-run}{%
+    name=\textit{Run},
+    description={%
+        ou <<exécution>>, c'est-à-dire <<exploitation>>: sous-équipe de
+        l'\gls{integ} chargée d'assurer le bon fonctionnement du système
+        implémenté par le \gls{ocd-build} de sorte qu'il soit opérationnel la
+        majeure partie du temps, de surveiller la sécurité du parc informatique
+        en question et donc réaliser le rôle de \gls{soc}, mais aussi de faire
+        évoluer les configurations logicielles au fur et à mesure des demandes
+        du client par voie de tickets
+    },
+}
+
+
 
 \newacronym[description={filiale d'Orange en cybersécurité}]
     {ocd}{OCD}{Orange Cyberdéfense}
