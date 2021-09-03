@@ -308,7 +308,95 @@ principalement orienté du point de vue du \gls{ocd-build}:
         \gls{ocd-build} commence alors à participer au projet pour tendre vers
         une spécification précise des changements qui vont être réalisés ou de
         l'infrastructure qui va être effectivement implémentée. Ceci commence en
-        général par une \gls{rli}.
+        général par une \gls{rli}. C'est une réunion de coordination interne à
+        \gls{ocd} en début de projet pour réaliser une transition entre les
+        \gls{presales} et les équipes de \gls{ocd-build} afin de transmettre les
+        informations importantes. Elle est en général relativement courte car il
+        s'agit principalement de se mettre d'accord sur ce qui va être présenté
+        au client et ainsi de préparer la \gls{rle}. Cette dernière est une
+        réunion de début de projet pour le \gls{ocd-build} suite à la \gls{rli}
+        cette fois-ci avec le client présent pour d'abord faire rencontrer les
+        différentes personnes des deux côtés, puis commencer à préparer une
+        spécification précise de l'implémentation à réaliser et le continuer
+        selon la taille du projet dans les jours, semaines ou mois suivants lors
+        d'une série d'ateliers techniques.
+
+    \item Le \gls{ocd-build} ayant réellement commencé le projet, ils vont
+        chercher à rédiger une spécification de l'architecture à implémenter et
+        déployer afin d'obtenir un accord de la part du client à son sujet et
+        donc ainsi d'avoir à portée de main une forme de guide contenant toutes
+        les informations à configurer sur les différents composants du système
+        global à mettre ne place. Cela permet aussi de proposer un cadre pour
+        les changements en cours de route: si le client avait bien approuvé la
+        spécification effective et qu'\acrlong{ocd} l'implémente en entier ou
+        presque mais que le client exprime finalement un mécontetement qui
+        demanderait de revoir une grande partie de l'architecture, \gls{ocd}
+        peut alors s'en défendre en rappelant l'approbation en question; le
+        client devra, s'il le souhaite effectivement, renégocier les contrats et
+        acheter de nouveau du temps de travail. Selon la taille du projet, cette
+        spécification peut prendre plusieurs formes différentes:
+
+    \begin{itemize}
+
+        \item Si le projet est particulièrement conséquent car fait intervenir
+            de nombreuses équipes, demande de déployer beaucoup de sites,
+            nécessite un grande variété de configurations, types d'équipements
+            ou logiciels, \ldots il est alors fréquent de séparer cette
+            rédaction en deux parties: un \gls{hld} puis un \gls{lld}. Un
+            \gls{hld} est un dossier regroupant les spécifications de
+            l'architecture à implémenter d'un point de vue assez global en
+            partant de l'idée générale de départ proposée par les
+            \gls{presales}. Il ne s'agit pas de préciser toutes les valeurs
+            effectives des options principales de configurations cibles à mettre
+            en place: c'est plus le rôle du \gls{lld} qui en découle. Ce dernier
+            est un dossier regroupant les spécifications les plus détaillées
+            possibles de l'architecture à implémenter telles que modèles de
+            machine à déployer, versions de systèmes d'exploitation à installer,
+            interfaces, adresses, routes, options, autorisations, règles,
+            objets, \ldots à configurer. Il est en général une continuation
+            directe du \gls{hld} associé. Cette séparation en deux permet
+            notamment d'un peu mieux gérer la communication car se fait à
+            propose des bons sujets lors des ateliers techniques, mais aussi la
+            répartition du temps de travail des ingénieurs car évite si possible
+            de nombreux aller-retours entre la spécification et
+            l'implémentation.
+
+        \item Si le projet n'est à l'inverse pas trop gros, il est souvent
+            envisagé de passer directement à un \gls{dsd}. C'est un dossier très
+            similaire à un \gls{lld}, car comportera le même genre de contenu
+            précis, mais est plutôt employé lorsque la taille du projet n'est
+            pas trop conséquente et permet donc de rédiger directement les
+            spécifications de l'implémentation en un temps moins long puisque la
+            plupart des sujets abordés lors d'ateliers techniques avec le client
+            ne posent pas de problème particulier et ne sont donc pas bloquants.
+            Pour résumer, un \gls{dsd} est une forme de fusion entre un
+            \gls{hld} et un \gls{lld}.
+
+    \end{itemize}
+
+    \item Une fois la spécification rédigée, ajustée et approuvée par le client,
+        l'équipe d'ingénieurs \gls{ocd-build} dédiée au projet commence
+        l'implémentation. Cela démarre régulièrement par une étape de
+        \gls{staging}: placer les équipements dans un environnement de test qui
+        s'approche le plus possible de l'environnement de production effectif.
+        L'intérêt est que cela permet de vérifier certaines parties du système,
+        comme par exemple l'interaction avec une base de données externe, qui
+        sont dans un environnement de test plutôt en local sur le même hôte,
+        mais aussi d'être en mesure d'avoir un contrôle plus important de
+        l'environnement global, comme par exemple vider la base de données et y
+        charger des données de test qui couvre des cas précis. Cela permet
+        aussi, lorsque cela peut s'appliquer, de vérifier de bon fonctionnement
+        de machines physiques pour gérer en interne les potentiels dégâts liés
+        au transport des marchandises. Avec une première configuration embarquée
+        dans les équipements, le déploiement dans l'environnement de production
+        peut donc se faire de manière plus rapide sur place car il s'agit
+        principalement de visser les machines, de les alimenter, connecter et
+        démarrer, mais aussi de manière plus sereine car une bonne partie des
+        cas ont déjà été vérifiés. Après cette étape, l'architecture est
+        déployée et configurée petit à petit jusqu'à atteindre un état cible ou
+        presque.
+
+    \item
 
 \end{itemize}
 

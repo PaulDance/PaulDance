@@ -62,6 +62,22 @@
     },
 }
 
+\newglossaryentry{staging}{%
+    name = \textit{staging},
+    description = {%
+        ou <<déploiement intermédiaire>> est une phase de tests après les tests
+        locaux et avant la production: on parle aussi souvent de
+        <<pré-production>>. Il s'agit d'établir un environnement de test qui
+        s'approche le plus possible de l'environnement de production effectif.
+        L'intérêt est que cela permet de vérifier certaines parties du système,
+        comme par exemple l'interaction avec une base de données externe, qui
+        sont dans un environnement de test plutôt en local sur le même hôte,
+        mais aussi d'être en mesure d'avoir un contrôle plus important de
+        l'environnement global, comme par exemple vider la base de données et y
+        charger des données de test qui couvre des cas précis%
+    },
+}
+
 
 \newacronym[description = {filiale d'Orange en cybersécurité}]
     {ocd}{OCD}{Orange Cyberdéfense}
@@ -99,10 +115,30 @@
     série d'ateliers techniques%
 }]{rle}{RLE}{Réunion de Lancement Externe}
 
-\newacronym[description = {}]{hld}{HLD}{\textit{High-Level Design}}
+\newacronym[description = {%
+    ou <<Conception de Haut Niveau>> est un dossier regroupant les
+    spécifications de l'architecture à implémenter d'un point de vue assez
+    global en partant de l'idée générale de départ proposée par les
+    \gls{presales}. Il ne s'agit pas de préciser toutes les valeurs effectives
+    des options principales de configurations cibles à mettre en place: c'est
+    plus le rôle du \gls{lld} qui en découle%
+}]{hld}{HLD}{\textit{High-Level Design}}
 
-\newacronym[description = {}]{lld}{LLD}{\textit{Low-Level Design}}
+\newacronym[description = {%
+    ou <<Conception de Bas Niveau>> est un dossier regroupant les spécifications
+    les plus détaillées possibles de l'architecture à implémenter telles que
+    modèles de machine à déployer, versions de systèmes d'exploitation à
+    installer, interfaces, adresses, routes, options, autorisations, règles,
+    objets, \ldots à configurer. Il est en général une continuation directe du
+    \gls{hld} associé%
+}]{lld}{LLD}{\textit{Low-Level Design}}
 
-\newacronym[description = {}]{dsd}{DSD}{Dossier de Spécifications Détaillées}
+\newacronym[description = {%
+    dossier très similaire à un \gls{lld}, mais plutôt employé lorsque la taille
+    du projet n'est pas trop conséquente et permet donc de rédiger directement
+    les spécifications de l'implémentation en un temps pas trop long puisque la
+    plupart des sujets abordés lors d'ateliers techniques avec le client ne
+    posent pas de problème particulier et ne sont donc pas bloquants%
+}]{dsd}{DSD}{Dossier de Spécifications Détaillées}
 
 %\newacronym[description = {}]{}{}{}
