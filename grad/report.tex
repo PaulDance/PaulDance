@@ -467,6 +467,27 @@ principalement orienté du point de vue du \gls{ocd-build}:
 
 \end{itemize}
 
+En somme, ce mode de travail est assez similaire à la méthode dite de la
+<<cascade>> où les étapes sont enchaînées sans vraiment prendre en compte la
+possibilité de retour en arrière et encore moins de cycle, ou en tout cas ne pas
+la souhaiter. Même si elle a en théorie certains avantages, puisque cherche à
+formaliser les choses à l'avance afin de simplement suivre le flot <<naturel>>
+des évènements, elle a tout de même certaines absurdités. En effet, si on
+cherche à la respecter de la manière la plus stricte possible et que, par
+exemple, on se rende compte d'une erreur dans la spécification lors de
+l'implémentation voire des tests, que fait-on? on continue la chaîne en
+outre-passant le problème? on abandonne le projet? on démissionne? Même si on
+relâche un peu la définition, cela n'est en fait pas très adapté à certains
+projets, comme nous le verrons plus tard. Évidemment, une solution est de
+changer de méthode en appliquant par exemple le <<cycle en V>>, au moins de
+manière partielle, mais selon mon expérience chez \gls{OCD}, je n'ai pas
+l'impression qu'il s'agisse vraiment de ce qui est employé. Cependant, je pense
+aussi qu'il n'est pas non plus idéal d'aller à l'extrême opposé, c'est-à-dire de
+considérer que rien n'est prévisible et de s'appuyer sur un cycle fréquent pour
+effacer les bosses soulevées par des problèmes de conception qui en réalité
+auraient pu être prévus. Un minimum de conception à l'avance est toujours
+possible et même plus que souhaitable.
+
 \section{Objectifs}%
 \label{sec:mission-objectifs}
 
