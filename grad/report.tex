@@ -396,7 +396,74 @@ principalement orienté du point de vue du \gls{ocd-build}:
         déployée et configurée petit à petit jusqu'à atteindre un état cible ou
         presque.
 
-    \item
+    \item Quand l'implémentation arrive vers sa fin, le \gls{ocd-build} commence
+        a rédiger en parallèle un \gls{dtv} par site déployé. Il regroupe un
+        ensemble de fiches de tests d'acceptation à effectuer avec succès pour
+        considérer le déploiement du site et la migration globale comme des
+        succès, et ainsi que le site soit considéré comme livré au client. Ces
+        tests peuvent très bien être entièrement automatisés ou bien faire
+        intervenir une certaine part d'actions manuelles: c'est en général le
+        cas pour les vérifications de bascule lorsque que la redondance physique
+        fait partie de l'architecture globale.  Les différents \gls{dtv} sont
+        complétés et validés par le client au fur et à mesure de quelques
+        itérations, comme la majeure partie des documents produits.
+
+    \item Après que le \gls{dtv} d'un est bien validé et que son implémentation
+        est terminée par le \gls{ocd-build}, une \gls{vabf} est plannifiée et
+        effectuée avec le client. Il s'agit d'une session lors de laquelle tous
+        les tests d'acceptation du \gls{dtv} associé sont exécutés et leur
+        résultats respectifs rapportés dans le document. Si un nombre
+        particulièrement important de tests échouent, il est tout à fait
+        envisageable de réaliser une nouvelle itération d'implémentation et par
+        la suite de planifier et exécuter une seconde \gls{vabf} entière. Si
+        seulement un nombre relativement faible de tests échouent, que certains
+        n'ont simplement pas pu être réalisés puisque des éléments humains ou
+        techniques manquaient ou que certains sont considérés non statisfaisants
+        --- c'est-à-dire une forme d'échec partiel où dans certaines conditions
+        estimées non courantes les systèmes ne fonctionnent pas comme attendus,
+        il est alors possible de considérer la \gls{vabf} comme un succès avec
+        quelques retenues tout de même. Les problèmes dans les jours qui suivent
+        reglés par le \gls{ocd-build} et vérifiés en dehors d'une seconde
+        \gls{vabf}.
+
+    \item Si les résultats de tous les tests sont des succès, la \gls{vabf} est
+        bien complétée, les ingénrieurs \gls{ocd-build} sont libérés du projet
+        et le site en question entre dans une période dite de \gls{vsr}. Pendant
+        cette période d'une durée définie en accord avec le client, celui-ci
+        utilise l'environnement de production cible déployé et fonctionnel du
+        point de vue des tests déjà effectués, mais cette fois-ci pour vérifier
+        que cela reste le cas dans la durée, c'est-à-dire qu'il n'y ait pas de
+        comportement erratique ou d'instabilité seulement à certains moments de
+        la journée par exemple, ou lorsque les systèmes sont soumis à des fortes
+        charges, ou encore de temps en temps de manière totalement stochastique.
+        Cette durée est en général de deux semaines pour les projets
+        d'\acrlong{ocd}, mais peut être étendue principalement sur demande du
+        client pour des projets dont ce genre d'aspects est jugé
+        particulièrement critique au bon fonctionnement global du système
+        considéré. Lors de la \gls{vsr}, l'équipe de \gls{ocd-build} réalise les
+        corrections demandées par le client en mode <<meilleur effort>>,
+        c'est-à-dire que les ingénieurs en question vont y passer le temps
+        qu'ils peuvent, mais n'en feront pas pour autant une priorité puisqu'ils
+        ne sont plus affectés au projet concerné et peuvent très bien faire déjà
+        partie d'un autre projet. Cependant, si un dysfonctionnement majeur se
+        produit et qu'il s'agit d'une erreur de la part de l'équipe, \gls{ocd}
+        se doit de refaire une itération de \gls{ocd-build}, mais s'il s'agit
+        d'un problème qui ne leur est pas attribuable, le client devra alors
+        payer pour une nouvelle itération s'il le souhaite.
+
+    \item Quand toutes ces étapes-là sont bien complétée, le projet est en
+        quelque sorte terminé, mais l'interaction entre \gls{ocd} et le client
+        continue cependant par une transition vers le \gls{ocd-run}. Après une
+        passation des informations importantes des équipes du \gls{ocd-build}
+        vers le \gls{ocd-run}, celui-ci prend pleinement possession des
+        interventions à réaliser sur le parc informatique précédemment déployé
+        et ainsi assurer le rôle de \gls{soc} si cela fait partie du contrat
+        négocié avec le client. Quelconque modification que souhaite faire le
+        client, si encore une fois ils n'ont pas exprimé et négocié dans le
+        contrat le besoin d'aussi pouvoir gérer les systèmes eux-même, il devra
+        alors ouvrir un ticket auprès du \gls{ocd-build} afin que ces derniers
+        appliquent le changement souhaité. Un tarif au tiquet ou groupe de
+        tiquet est appliqué.
 
 \end{itemize}
 
