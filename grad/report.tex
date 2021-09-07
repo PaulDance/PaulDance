@@ -607,6 +607,75 @@ existe dans l'environnement de test et ce qui est disponible à l'installation.
 \section{Deuxième mission: projet SNCF}%
 \label{sec:mission::deuz}
 
+La deuxième mission qui m'a été confiée aura été de participer à la rédaction
+d'un \acrfull{dex} dans le cadre d'un projet en approche de fin pour le compte
+de la \gls{sncf}. Le projet, nommé <<\textit{Access}>> consistait en la mise en
+place d'une architecture publique \textit{cloud} avec l'objectif de fonctionner
+en tant que zone tampon pour les flux provenant de l'Internet public et à
+destination des applications \gls{sncf} publiques. Ces applications étaient
+souvent des applications Web, mais n'y étaient pas restreintes car tout type
+était permis tant qu'il était transporté par \gls{tcp} ou \gls{udp}. Cette zone
+de sécurité avait pour but l'analyse avancée du trafic, à travers du \gls{waf}
+et de l'\gls{ips}.  Elle devait également permettre l'évasion vers l'Internet du
+trafic provenant des \glspl{dmz} publiques et privées. Un aperçu de
+l'architecture globale est rendue disponible en
+Figure~\ref{fig:sncf-access/arch}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{img/sncf-access/arch.png}
+    \caption{%
+        Vue d'ensemble de l'architecture du projet SNCF \textit{Access} sous
+        \textit{Azure}%
+    }%
+    \label{fig:sncf-access/arch}
+\end{figure}
+
+Cette architecture suit principalement un modèle en couches pour assurer une
+protection à divers niveaux, tels que réseau, applicatif et anti-virus. Une
+description de ces couches suit:
+
+\begin{itemize}
+    \item Un niveau de \acrlong{fgt} est utilisé comme pare-feu externe. Il est
+        en charge du filtrage fin niveau 3/4 des flux au sein d'\textit{Access}.
+    \item Un niveau de F5 est utilisé comme second bastion. Il est en charge du
+        \gls{waf}, avec du déchiffrement \gls{tls} souvent appelé
+        <<déchiffrement \gls{ssl}>>.
+    \item Un niveau de Palo Alto est utilisé comme troisième bastion. Il est en
+        charge de l'analyse \gls{ips}.
+    \item Un niveau de F5 est utilisé comme quatrième bastion. Il est en charge
+        du rechiffrement des flux et fonctionne en tant que \gls{rev-proxy} pour
+        rediriger le trafic vers les serveurs adéquats.
+    \item Un groupe de F5 DNS est utilisé afin d'assurer la résilience entre
+        chaque niveau d'équipements.
+\end{itemize}
+
+Le \gls{dex} demandé sortait légèrement de la norme habituellement employée pour
+la plupart des autres projets. Au lieu de demander un résumé des opérations
+d'exploitation, ce qu'ils avaient déjà en partie reçu avant mon arrivée sur le
+projet, ils souhaitaient cette fois-ci plus une forme de guide d'implémentation
+de nouveaux services. Il s'agit donc moins d'une documentation liée à
+l'exploitation des infrastructures déployées, mais plutôt à leur modification en
+cas de changement relativement mineur du point de vue du système global. Cela
+leur était possible car faisait tout simplement partie des livrables du projet:
+la \gls{sncf} souhaitait être en pleine mesure de contrôler ses sytèmes.
+
+Nous nous sommes alors chargés de rédiger ce document afin de répondre à la
+demande du client. L'axe principal était orienté autout de: comment déployer un
+nouveau service au niveau d'\textit{Access}? Nous devions donc détailler le plus
+précisément possible l'ensemble des étapes à réaliser à cette fin et ce, pour
+chacune des couches définies ci-dessus. Cela impliquait notamment d'inclure
+diverses captures d'écran, tableaux résumant certaines informations primordiales
+aux étapes concernées, explications et rappels généraux, instructions
+spécifiques, \ldots Je m'étais personnellement occupé des parties concernant les
+opérations sous \acrlong{fgt} pour lesquelles j'ai pu utiliser mes connaissances
+fraîchement acquises et celles sous Azure et Palo Alto pour lesquelles j'ai dû
+me former tel que mentionné à la Section~\ref{sub:mission::prems::auto-formation}.
+J'ai par ailleurs dû manipuler directement les ressources de ces quelques
+technologies déjà déployées en production afin de produire la majeure partie des
+sections du document dont j'étais chargé, même si cela restait assez limité
+comparé à la mission principale détaillée en Section~\ref{sec:mission::main}.
+
 
 \section{Mission principale: projet Hynamics}%
 \label{sec:mission::main}

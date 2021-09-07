@@ -73,6 +73,17 @@
     },
 }
 
+\newglossaryentry{rev-proxy}{%
+    name = \textit{reverse proxy},
+    description = {%
+        est un type de serveur proxy qui s'occupe de récupérer des ressources au
+        nom d'un client faisant une requête et auprès d'un ou plusieurs serveurs
+        effectifs. Ces ressources sont ensuite renvoyées au client comme si
+        elles provenaient du serveur proxy lui-même. Cette technique est surtout
+        utilisée pour mettre en place de la répartition de charge%
+    },
+}
+
 %\newglossaryentry{}{%
 %    name = ,
 %    description = {},
@@ -184,5 +195,65 @@
     appareil de récolte de journaux générés par les divers appareils Fortinet
     lui les communiquant~\cite{faz}%
 }]{faz}{FAZ}{FortiAnalyzer}
+
+\newacronym[description = {%
+    est l'entreprise ferroviaire publique française%
+}]{sncf}{SNCF}{Société Nationale des Chemins de fer Français}
+
+\newacronym[description = {%
+    ou <<pare-feu d'application web>> est une forme de pare-feu applicatif
+    spécifique au Web qui filtre, surveille et bloque du trafic \gls{http}
+    allant vers et venant d'un service Web. En inspectant le contenu du trafic
+    \gls{http}, un tel pare-feu est en mesure d'empêcher des attaques exploitant
+    des vulnérabilités connues dans une application Web, telles que des
+    injections SQL, \gls{xss}, inclusion de fichiers et mauvaises configurations
+    de système%
+}]{waf}{WAF}{\textit{Web Application Firewall}}
+
+\newacronym[description = {%
+    catégorie de vulnérabilités typiquement d'applications Web permettant à un
+    attaquant l'injection de scripts destinés au côté client dans des pages Web
+    vues par d'autres utilisateurs, pouvant ainsi lui servir à contourner
+    certaines mesures de contrôle d'accès%
+}]{xss}{XSS}{\textit{Cross-Site Scripting}}
+
+\newacronym[description = {%
+    ou <<système d'entrave à l'intrusion>> est un type d'appareil ou logiciel
+    qui surveille des réseaux ou systèmes pour des signes d'activités
+    malveillantes ou violations de politiques centrales, afin d'en faire le
+    rapport à un système de gestion d'évènements, mais aussi de prendre des
+    mesures dans le but d'en réduire l'impact%
+}]{ips}{IPS}{\textit{Intrusion Prevention System}}
+
+\newacronym[description = {%
+    ou <<zone démilitarisée>> est un sous-réseau logique ou physique séparé qui
+    contient et expose les services informatiques d'une organisation à un réseau
+    externe non fiable tel que l'Internet public%
+}]{dmz}{DMZ}{\textit{DeMilitarized Zone}}
+
+\newacronym[description = {%
+    protocole à la base du Web et habituellement transporté par \acrfull{tcp}%
+}]{http}{HTTP}{\textit{HyperText Transfer Protocol}}
+
+\newacronym[description = {%
+    protocole de transport en mode connecté fondamental à l'Internet%
+}]{tcp}{TCP}{\textit{Transmission Control Protocol}}
+
+\newacronym[description = {%
+    protocole de transport en mode déconnecté fondamental à l'Internet%
+}]{udp}{UDP}{\textit{User Datagram Protocol}}
+
+\newacronym[description = {%
+    est un protocole cryptographique fonctionnant au niveau session et conçu
+    pour fournir confidentialité et intégrité aux communications effectuées au
+    travers d'un réseau informatique, ainsi que l'authentification des partis.
+    Il est le successeur de \gls{ssl}%
+}]{tls}{TLS}{\textit{Transport Layer Security}}
+
+\newacronym[description = {%
+    prédécesseur maintenant déprécié de \gls{tls}. Le terme est encore beaucoup
+    utilisé dans le nom de certaines fonctionnalités proposées dans des produits
+    de nombreux fabriquants, surtout par abus de langage%
+}]{ssl}{SSL}{\textit{Secure Sockets Layer}}
 
 %\newacronym[description = {}]{}{}{}
