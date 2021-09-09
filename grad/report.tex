@@ -932,6 +932,54 @@ remplie afin d'acter que les tests s'étaient bien déroulés à ce moment-là.
 \subsection{Collecte des informations et déploiement sur sites}%
 \label{sub:mission::main::collec}
 
+À partir de ce moment-là, les collaborateurs d'Hynamics devaient revenir vers
+nous dès qu'ils auraient rempli d'une manière la plus exhaustive et correcte
+possible un <<fichier de collecte>>. Celui-ci résume en un endroit l'ensemble
+des informations que le \gls{ocd-build} ne peut pas déduire de ce qui a été
+discuté en réunions et de l'architecture haut niveau précédemment conçue,
+c'est-à-dire les informations métier. Cela comprend la liste des \glspl{vlan}
+par site, les adresses des sous-réseaux du site et celle du pare-feu dedans, les
+routes particulières, les paramètres \gls{vpn-tls}, les différents
+\glspl{tun-ipsec} et surtout les règles de filtrage. Avec cette fiche bien
+remplie, la rédaction d'un \gls{dsd} et l'implémentation qui s'ensuit seraient
+grandement facilitées et en particulier ici, elle deviendraient presque
+immédiates au vu de la taille du projet relativement petite.
+
+Cependant, cette fiche ne s'est pour ainsi dire jamais vraiment remplie
+complètement. En effet, il y a d'abord eu des difficultés liées simplement au
+manque de compétences techniques chez les collaborateurs d'Hynamics qui créait
+une difficulté au remplissage des informations demandées et un peu de confusion
+à certains moments. Cela n'était pas du tout surprenant pour autant puisqu'ils
+avaient bien fait appel à \gls{ocd} pour ça. Nous avons donc simplement dû gérer
+cet aspect-là avec eux. Par contre, ce qui a vraiment ralenti le projet de
+côté-là a surtout été les partenaires d'Hynamics qui ont mis un temps
+considérable à fournir les informations nécessaires, en particulier un. Cela a
+demandé de décaler dans le temps plusieurs étapes du projet à de multiples
+reprises afin de pouvoir les faire correctement, mais aussi de revenir maintes
+fois sur des documents et configurations qui auraient normalement dû êtres
+terminés et confirmés assez tôt dans le projet. C'est pour cette raison que je
+pense que le mode de travail en cascade n'était pas très adapté à ce projet:
+accepter quelques cycles parmi un V aurait été assez efficace à mon avis au lieu
+de décaler les choses pour toujours essayer de les faire dans l'ordre prévu
+alors qu'on ne le fait en réalité déjà plus. Il y a donc eu de nombreux
+va-et-vient tout au long du projet pour échanger avec le client à propos de
+diverses nouvelles informations ou mises-à-jour.
+
+C'est aussi à partir de ce moment-là que j'ai été chargé de réaliser en majeure
+partie la rédaction du \acrfull{dsd}, avec l'aide et validation régulières de
+mon binôme bien entendu. Le \gls{dsd} reprend notamment les informations du
+fichier de collecte que nous avions reçues et qui étaient utilisables, mais
+aussi certaines ajoutées comme les architectures physiques et logiques, le
+détail du raccordement physique interface par interface, les routes, le
+\gls{vpn-tls}, les \glspl{tun-ipsec}, la \acrfull{ha}, l'administration et la
+supervision par le \gls{soc} du \gls{ocd-run}. Comme expliqué ci-dessus, le
+manque d'informations arrivées à temps nous a fait rédiger une première version
+assez incomplète et par la suite plusieurs itérations pour finalement assez peu
+de valeur ajoutée puisque la configuration évoluait en général avant le
+\gls{dsd}, ce qui lui faisait alors perdre une bonne partie de son intérêt de
+spécification au préalable. C'est allé jusqu'à continuer ça même après mon
+départ suite à la fin de ma période de stage.
+
 \subsection{Implémentation de la configuration}%
 \label{sub:mission::main::implem}
 
