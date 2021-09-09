@@ -97,11 +97,25 @@
     },
 }
 
+\newglossaryentry{ipsec}{%
+    name = IPsec,
+    description = {%
+        est une suite de protocoles de sécurité qui authentifient et chiffrent
+        les paquets de données pour fournir un moyen de communication sécurisée
+        entre deux hôtes et au travers d'un réseau IP%
+    },
+}
+
 \newglossaryentry{tun-ipsec}{%
     name = {tunnel IPsec},
     plural = {tunnels IPsec},
     description = {%
-        %
+        ou plus précisément dans le cadre de ce rapport <<tunnel IKE/ESP>>,
+        c'est-à-dire le mode tunnel de la suite \gls{ipsec}, est une autre forme
+        de \gls{vpn} où deux routeurs établissent une connexion pour mettre en
+        relation virtuellement deux sous-réseaux privés par-dessus un réseau
+        public; le protocole \gls{ike} est utilisé pour construire les clés et
+        \gls{esp} pour transporter les paquets de manière sécurisée%
     },
 }
 
@@ -312,5 +326,28 @@
     d'émettre ou de recevoir des données comme si directement reliés au réseau
     privé alors qu'en réalité seulement reliés au réseau partagé%
 }]{vpn}{VPN}{\textit{Virtual Private Network}}
+
+\newacronym[description = {%
+    ou <<association de sécurité>> est l'établissement d'attributs de sécurité
+    partagés par deux entités de réseau pour permettre des communications
+    sécurisées, tels qu'un algorithme cryptographique et son mode de
+    fonctionnement ou une clé de chiffrement et d'autres paramètres dédiées aux
+    données à transmettre au travers de la connexion%
+}]{sa}{SA}{\textit{Security Association}}
+
+\newacronym[description = {%
+    est un protocole utilisé par \gls{ipsec} pour mettre en place une
+    \acrfull{sa} et qui utilise des certificats ou clés pré-partagées pour
+    construire un secret commun par Diffie-Hellmann et ainsi en dériver des clés
+    cryptographiques%
+}]{ike}{IKE}{\textit{Internet Key Exchange}}
+
+\newacronym[description = {%
+    est un protocole de la suite \gls{ipsec} qui, en mode tunnel, encapsule
+    entièrement les paquets IP à transporter dans de nouveaux paquets IP\@; il
+    permet de fournir authenticité en authentifiant la source, intégrité grâce
+    à des fonctions de hachage cryptographiques et confidentialité grâce au
+    chiffrement des paquets IP chargés%
+}]{esp}{ESP}{\textit{Encapsulating Security Payload}}
 
 %\newacronym[description = {}]{}{}{}

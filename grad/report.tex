@@ -869,6 +869,40 @@ parfois au désagrément des utilisateurs. OpenVPN est un exemple d'implémentat
 libre de ce type de \gls{vpn}. FortiClient est utilisé dans ce projet puisque
 spécifique aux produits Fortinet.
 
+Un \gls{tun-ipsec} ou plus précisément dans le cadre de ce rapport <<tunnel
+IKE/ESP>>, c'est-à-dire le mode tunnel de la suite \gls{ipsec}, est une autre
+forme de \gls{vpn} où deux routeurs établissent une connexion pour mettre en
+relation virtuellement deux sous-réseaux privés par-dessus un réseau public. Le
+protocole \gls{ike} est utilisé pour construire les clés et \gls{esp} pour
+transporter les paquets de manière sécurisée. \gls{ike} est un protocole utilisé
+par \gls{ipsec} pour mettre en place une \gls{sa} et qui utilise des certificats
+ou clés pré-partagées pour construire un secret commun par Diffie-Hellmann et
+ainsi en dériver des clés cryptographiques. Une \gls{sa} est l'établissement
+d'attributs de sécurité partagés par deux entités de réseau pour permettre des
+communications sécurisées, tels qu'un algorithme cryptographique et son mode de
+fonctionnement ou une clé de chiffrement et d'autres paramètres dédiées aux
+données à transmettre au travers de la connexion. Cette étape est souvent
+appelée <<phase 1>>. \gls{esp} est un protocole de la suite \gls{ipsec} qui, en
+mode tunnel, encapsule entièrement les paquets IP à transporter dans de nouveaux
+paquets IP\@. Il permet de fournir authenticité en authentifiant la source,
+intégrité grâce à des fonctions de hachage cryptographiques et confidentialité
+grâce au chiffrement des paquets IP chargés.  Cette étape est souvent nommée
+<<phase 2>>. C'est cette encapsulation qui permet de créer le réseau virtuel
+sans affectation d'adresse locale ni de traduction d'adresse. En effet,
+lorsqu'un hôte émet un message depuis le réseau privé de départ, il le fait avec
+comme adresse source la sienne et la destination celle dans le réseau privé
+d'arrivée. Il envoie ce paquet au routeur local puisqu'il l'a comme passerelle
+configurée automatiquement ou bien manuellement au moins pour atteindre le
+réseau de destination, si ce n'est pour tous les réseaux externes. Le routeur
+réalise ensuite les opérations d'\gls{esp}: chiffre le paquet et le met comme
+charge d'un nouveau paquet dont la source est l'adresse publique du routeur de
+départ et la destination celle publique du routeur d'arrivée. Ce paquet est
+transporté par le réseau partagé, par exemple l'Internet public, jusqu'au
+routeur d'arrivée qui réalise les opérations inverses: déchiffre la charge et
+l'émet sur le réseau privé local. Celui-ci transporte le paquet précédemment
+encapsulé vers la destination qui est alors en mesure de répondre exactement de
+la même manière, puisque la connexion et les configurations sont symétriques.
+
 \subsection{Collecte des informations et déploiement sur sites}%
 \label{sub:mission::main::collec}
 
