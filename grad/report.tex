@@ -684,6 +684,123 @@ principale détaillée en Section~\ref{sec:mission::main}.
 \subsection{Considérations générales}%
 \label{sub:mission::main::gen}
 
+Hynamics est une filiale du groupe \gls{edf} fondée en avril 2019~\cite{hy}.
+Elle se spécialise dans la production de dihydrogène ($H_2$ et par abus de
+langage simplement <<hydrogène>>) renouvelable et à basse émission de dioxyde de
+carbone ($CO_2$). Puisque c'est une entreprise assez jeune, peu de choses
+visibles concrètement n'avaient été réalisées avant l'été 2021. Ses deux
+premières années ont été consacrées à la conception de leurs plateformes, la
+formation de partenariats pour la construction et la production, la mise en
+place de contrats à l'avance, etc\ldots{} C'est au début de l'été 2021
+qu'Hynamics commence à déployer ses sites de test et de production, en restant
+en France pour une première étape. Ces sites ayant besoin d'accès à l'Internet
+de manière spécifique et \gls{edf} ayant une culture de la sécurité assez
+dévoloppée et présente du fait de leurs applications particulièrement critiques,
+Hynamics a contacté \acrlong{ocd} afin de sécuriser leurs infrastructures.
+
+Hynamics possède en début de projet trois sites qui en feront partie: le
+<<quartier général>> à La Défense (raccourci DEF) qui ne portera pas vraiment de
+production ni industrielle ni informatique à proprement parler, un espace sur la
+plateforme de test <<Les Renardières>> (RNRD) d'\gls{edf} près de Fontainebleau
+et le premier site de production près d'Auxerre (AUXR). Les objectifs d'Hynamics
+pour ces infrastructures étaient de:
+
+\begin{itemize}
+    \item Isoler les sites de l'Internet public le plus possible.
+    \item Empêcher les sites de communiquer entre eux.
+    \item Isoler les uns des autres les équipements des partenaires installés
+        sur site le plus possible.
+    \item Relier les sites de production au site de La Défense pour permettre
+        une gestion centralisée et la remontée des journaux.
+    \item Permettre l'accès aux sites en VPN <<\gls{ssl}>> aux collaborateurs
+        d'Hynamics et certains de ses partenaires en ayant fait la demande.
+    \item Permettre l'accès aux sites en montant des tunnels IPsec avec des
+        équipements distants de partenaires pour les opérations automatisées.
+    \item Obtenir une haute disponibilité acceptable.
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{img/doc-hy/global-arch.png}
+    \caption{Architecture globale du projet Hynamics}%
+    \label{fig:doc-hy/global-arch}
+\end{figure}
+
+L'architecture présentée en Figure~\ref{fig:doc-hy/global-arch} montre le
+premier jet conçu par les \gls{presales}. Il montre une vue d'ensemble de ce qui
+sera par la suite détaillé et implémenté. Voici quelques détails supplémentaires
+à propos de l'architecture qui découlent de la proposition faite par les
+\gls{presales}:
+
+\begin{itemize}
+    \item Chaque site possède un pare-feu principal qui s'occupe d'agir en tant
+        que routeur pour le réseau local et ainsi sa passerelle par défaut pour
+        tout accès externe. Il fournit la majeure partie de la sécurité d'un
+        site dans ce projet.
+    \item Chaque réseau local, sauf celui de La Défense, possède un commutateur
+        configurable et capable de gérer les \glspl{vlan}, c'est-à-dire
+        manipuler l'extension Ethernet IEEE 802.1q correctement. Cet aspect
+        permet de fournir l'isolation souhaitée entre les équipements des
+        différents partenaires présents sur sites.
+    \item Pour assurer la haute disponibilité (\gls{ha}) demandée, chaque site
+        est équipé de trois liens d'accès Internet différents: un premier lien
+        filaire \gls{fi} souvent une ADSL, un second \gls{bi} souvent une SDSL
+        et un dernier lien cette fois-ci en espace libre par 4G.
+    \item De même, le pare-feu de chaque site est en fait une paire du même
+        modèle et reliés par une connexion \gls{ha} directe permettant la
+        synchronisation automatique des configurations pour rendre la paire
+        quasiment identique et la détection automatique de perte de l'autre.
+    \item Le site de La Défense n'a pas de \glspl{vlan}, mais seulement une
+        machine qui héberge deux machines virtuelles: une pour le \acrfull{fmg}
+        et l'autre pour le \acrfull{faz}.
+    \item Le \acrfull{soc} est relié par un tunnel au site de La Défense afin
+        d'être en mesure de surveiller et contrôler tous les autres sites au
+        travers des tunnels qui les relient à La Défense.
+\end{itemize}
+
+Le modèle de pare-feu retenu par Hynamics avec les \gls{presales} est le
+Fortinet \acrlong{fgt} 40F. Il s'agit d'un des modèles faisant partie de la
+gamme la moins puissante de Fortinet: les choses ont été faites de côté-là le
+plus à la baisse possible car cela suffisait en nombre de ports physiques mais
+aussi en termes de capacités de traitement puisqu'Hynamics n'avait pas formulé
+de besoins de débit particulièrement élevés, la disponibilité importait plus.
+Un aperçu du modèle est montré en Figure~\ref{fig:doc-hy/fgt-40f}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.8\linewidth]{img/doc-hy/fgt-40f.png}
+    \caption{Aperçu du modèle \acrlong{fgt} 40F}%
+    \label{fig:doc-hy/fgt-40f}
+\end{figure}
+
+L'architecture physique des sites est présentée en
+Figure~\ref{fig:doc-hy/site-phys-arch}. Les deux pares-feux de la paire sont
+reliés à tous les routeurs des liens internet disponibles sur le site et au
+commutateur central. Ils sont aussi reliés entre eux par un lien \gls{ha}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.8\linewidth]{img/doc-hy/site-phys-arch.png}
+    \caption{Architecture physique d'un site, ici Fontainebleau}%
+    \label{fig:doc-hy/site-phys-arch}
+\end{figure}
+
+L'architecture logique des sites est présentée en
+Figure~\ref{fig:doc-hy/site-logi-arch}. Elle montre comment sont organisés les
+différents réseaux et \glspl{vlan} d'un site par rapport aux interfaces
+physiques. Chaque partenaire possède son propre \gls{vlan} et son sous-réseau
+comme domaine d'adressage pour mettre en place le partitionnement souhaité. Les
+\glspl{vlan} sont placés sous l'inteface physique \texttt{lan1}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.8\linewidth]{img/doc-hy/site-logi-arch.png}
+    \caption{%
+        Architecture logique d'un site, ici Auxerre avec ses différents réseaux%
+    }%
+    \label{fig:doc-hy/site-logi-arch}
+\end{figure}
+
 \subsection{Démarrage et premières opérations}%
 \label{sub:mission::main::start}
 
