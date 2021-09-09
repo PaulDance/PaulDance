@@ -833,6 +833,42 @@ défis supplémentaires. D'autres aspects apparus en cours de projet n'ont
 tard. Parmis ces choses à expliquer, deux étaient cruciales au projet: le
 \gls{vpn-tls} et les \glspl{tun-ipsec}.
 
+Le \gls{vpn-tls} est une forme de \gls{vpn} où un client rejoint virtuellement
+un réseau privé en se connectant à un serveur distant visible publiquement et en
+y faisant passer ses données au travers. \gls{tls} assure la confidentialité,
+l'intégrité et une partie de l'authentification de la communication. Il s'agit
+en général de celle du serveur grâce à un certificat. Celle du client est
+spécifique à l'implémentation particulière: elle peut être réalisée grâce à une
+paire nom d'utilisateur / mot de passe ou un certificat client suivi d'un
+échange défi-réponse entre le serveur et le client. Une fois l'utilisateur
+authentifié auprès du serveur, ce dernier lui affecte une adresse locale et
+récupère une liste de routes auxquelles est inscrit le client et les lui fait
+parvenir. Le client crée alors une interface de type tunnel sur son hôte avec
+l'adresse reçue et applique aussi les routes reçues de sorte que tout processus
+cherchant à réaliser une communication à destination du réseau privé distant
+puisse bien la faire puisque le noyau du système gère ce routage. Par exemple,
+si un client se connecte au serveur d'adresse publique \texttt{1.2.3.4} afin de
+rejoindre le réseau \texttt{172.20.42.0/24}, le serveur lui affectera l'adresse
+locale \texttt{172.20.42.252} imaginons. Une fois les informations détaillées
+ci-dessus reçues par le client, il crée une interface tunnel d'adresse
+\texttt{172.20.42.252/24} et une route où le réseau destination est
+\texttt{172.20.42.0/24}, la passerelle \texttt{1.2.3.4} et l'interface émettrice
+celle crée juste avant. Cette interface est sous écoute de l'implémentation du
+client qui gère toutes les communications effectives avec le serveur. Ainsi
+toutes les communications à destination de \texttt{172.20.42.0/24} se font bien
+puisque le noyau les redirige vers le client, et le reste n'est pas perturbé
+puisque la route ne redirige que ce qui est à destination du réseau en question.
+Cette caractéristique de maintient de communications séparées est souvent nommée
+en anglais <<\textit{split tunneling}>>.  Évidemment, il est tout à fait
+possible de l'empêcher: il suffit de préciser côté serveur que la seule route à
+envoyer est \texttt{0.0.0.0/0}, c'est-à-dire le réseau qui englobe toutes les
+adresses IPv4 possibles. Ce mode de fonctionnement est souvent utilisé en
+entreprise pour être en mesure d'observer tout le trafic de ses employés pour
+filtrer le plus de contenu possible et ainsi obtenir une sécurité renforcée,
+parfois au désagrément des utilisateurs. OpenVPN est un exemple d'implémentation
+libre de ce type de \gls{vpn}. FortiClient est utilisé dans ce projet puisque
+spécifique aux produits Fortinet.
+
 \subsection{Collecte des informations et déploiement sur sites}%
 \label{sub:mission::main::collec}
 
