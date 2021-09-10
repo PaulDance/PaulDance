@@ -1055,6 +1055,49 @@ Les déploiement sur site se sont tous bien déroulés et ont ainsi permis l'acc
 \chapter{Annexes}%
 \label{cha:annexes}
 
+\section{\acrlong{fgt}}%
+\label{sec:annexes::fgt}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{img/fgt-auxr/dashboard.png}
+    \caption{Tableau de bord de l'interface Web d'un \acrlong{fgt}}%
+    \label{fig:fgt-auxr/dashboard.png}
+\end{figure}
+
+\section{\acrlong{fmg}}%
+\label{sec:annexes::fmg}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{img/fmg/device-manager.png}
+    \caption{Vue du gestionnaire des appareils configurés par un \acrlong{fmg}}%
+    \label{fig:fmg/device-manager.png}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \linewidth]{img/fmg/vips.png}
+    \caption{Liste des VIPs configurées par et pour le \gls{ocd-run}}%
+    \label{fig:fmg/vips.png}
+\end{figure}
+
+Comme le montre la Figure~\ref{fig:fmg/vips.png}, des VIPs ont été configurées
+sur les pares-feux. Une \textit{Virtual IP address} ou <<adresse IP virtuelle>>
+est une fonctionnalité proposées par de nombreux équipements réseau et qui
+permet de faire écouter le système d'exploitation sur une certaine interface
+mais avec une adresse potentiellement autre que celle de l'interface. Une
+configuration possible est de rediriger tout paquet y arrivant avec l'adresse
+VIP configurée comme adresse destination vers une autre adresse dans le réseau.
+Il est aussi possible de faire ceci en fonction du contenu, ce qui peut être
+utilisé pour mettre en place des formes de passerelles de redirection. La
+première option a été choisie par le \gls{ocd-run} car les adresses des
+interfaces \gls{vlan} dans les sous-réseaux dédiés au client, à l'administration
+et à la supervision rentraient en conflit avec le plan d'adressage interne au
+\gls{soc} et à \gls{ocd}. Ces VIPs leur ont donc permis de joindre les machines
+en question mais comme si elles étaient directement dans les sous-réseaux qu'ils
+avaient choisis au lieu de celui effectivement utilisé.
+
 \section{Résumé des finances}%
 \label{sec:annexes::finances-ocd}
 
