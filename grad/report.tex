@@ -1017,12 +1017,35 @@ que j'ai menées et configurations que j'ai mises en place, elle ne seront
 simplement pas nécessairement montrées dans l'ordre chronologique dans lequel
 elles ont effectivement été appliquées.
 
+La première étape aura été de revoir les interfaces qui sont présentées en
+Figure~\ref{fig:fgt-auxr/interfaces}. En effet, de nouvelles informations nous
+étaient parvenues et nous devions ajouter de nouvelles sous-interfaces
+\gls{vlan} pour les partenaires qui avaient initialement été prévus pour avoir
+leur machines dans le sous-réseau dédié à Hynamics. De plus, certaines des
+interfaces représentant les \glspl{tun-ipsec} ont dû être modifiées pour
+recevoir une adresse spécifique au tunnel afin de gérer correctement le
+\gls{bgp}. Enfin, des droits supplémentaires autorisés sur les interfaces
+publiques, tels la capacité d'effectuer un \textit{ping} ou d'administrer le
+pare-feu en HTTPS ou SSH, avaient été maintenus pour garder un accès de secours
+en attendant la validation du bon fonctionnement du \gls{vpn-tls}. Ils ont été
+retirés une fois tout bien configuré.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = 0.5\linewidth]{img/fgt-auxr/interfaces.png}
     \caption{Interfaces du pare-feu d'Auxerre}%
     \label{fig:fgt-auxr/interfaces}
 \end{figure}
+
+Ensuite, les routes statiques, montrées en Figure~\ref{fig:fgt-auxr/routes}, ont
+eu besoin d'être changées régulièrement pour prendre en compte les nouveautés au
+niveau de l'architecture. En particulier, les \glspl{tun-ipsec} entre La Défense
+et les sites de production, mais aussi ceux avec les partenaires qui étaient
+souvent changés en fonction de la recherche de solution avec eux. Les trois
+premières routes n'ont cependant jamais changé puisqu'il s'agit des routes par
+défaut redirigeant vers les routeurs des trois liens Internet locaux. Celles
+concernant les \glspl{tun-ipsec} inter-sites n'ont pas non plus beaucoup
+changées une fois configurées et vérifiées.
 
 \begin{figure}[h!]
     \centering
