@@ -980,6 +980,31 @@ de valeur ajoutée puisque la configuration évoluait en général avant le
 spécification au préalable. C'est allé jusqu'à continuer ça même après mon
 départ suite à la fin de ma période de stage.
 
+En parallèle, les pares-feux sont paramétrés pour simuler l'environnement de
+production tout en restant dans la zone de test: nous faisions avancer la
+pré-production. Cela nous a permis de mettre en place et vérifier la \gls{ha}
+entre chaque paire de machines ainsi que le bon fonctionnement du \gls{vpn-tls},
+au moins pour être en mesure de modifier à distance les paramètres des
+pares-feux. La première configuration est ainsi assez basique, juste de quoi
+permettre l'accès à distance, donc quelques utilisateurs et règles associées. Le
+reste ne pourra venir qu'après puisque les informations manquaient à ce
+moment-là. Les interfaces physiques et sous-interfaces \gls{vlan} sont
+configurées pour que leurs adresses correspondent bien à ce qui allait être
+utilisé juste après l'installation sur site et c'est qui a été testé. La période
+de \gls{staging} s'est terminée assez rapidement puisque les choses étaient
+prévues pour bien avancer peu de temps après et que peu de changements devaient
+être faits, quelques jours seulement ont suffit. Après cela, j'ai dû réaliser
+les opérations inverses par rapport à la précédente
+Section~\ref{sub:mission::main::start}, c'est-à-dire éteindre tous les six
+pares-feux, les retirer de la salle test, les remballer et les confier pour les
+faire livrer au client qui s'occupera de les répartir entre les sites.
+L'installation sur site se fait ensuite quelques jours plus tard, mon binôme
+s'est occupé de La Défense, moi de Fontainebleau et Hynamics d'Auxerre
+puisqu'ils se sentaient confiants après nous avoir observés les deux fois
+précédentes et que le site est un peu plus loin de Paris que les deux autres.
+Les déploiement sur site se sont tous bien déroulés et ont ainsi permis l'accès
+à distance pour les configurer dès leur installation.
+
 \subsection{Implémentation de la configuration}%
 \label{sub:mission::main::implem}
 
