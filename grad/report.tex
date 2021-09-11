@@ -1055,12 +1055,78 @@ changées une fois configurées et vérifiées.
 \end{figure}
 \FloatBarrier{}
 
+Un \gls{tun-ipsec} est configuré sous \acrlong{fgt} avec les morceaux de
+configuration suivants:
+
+\begin{itemize}
+    \item Une <<phase 1>> qui paramètre le comportement d'\gls{ike} et
+        l'initialisation de la connexion, avec les options principales suivantes:
+
+    \begin{itemize}
+        \item \texttt{interface}: l'interface sur laquelle écouter et
+            communiquer;
+        \item \texttt{remote-gw}: l'hôte distant auquel se connecter;
+        \item \texttt{proposal}: la liste de couples algorithme de chiffrement /
+            algorithme de hachage à proposer au correspondant distant;
+        \item \texttt{psksecret}: le secret pré-partagé.
+    \end{itemize}
+
+    \item Une ou plusieurs <<phases 2>> qui paramètrent le comportement
+        d'\gls{esp} et la communication effective, avec les options principales
+        suivantes:
+
+    \begin{itemize}
+        \item \texttt{phase1name}: l'identifiant de la phase 1 à utiliser;
+        \item \texttt{proposal}: la liste de couples algorithme de chiffrement /
+            algorithme de hachage à proposer au correspondant distant;
+        \item \texttt{dhgrp}: le groupe Diffie-Hellmann à utiliser pour
+            construire le secret commun avec le correspondant distant;
+        \item \texttt{src-subnet}: le réseau local dont les paquets sont à faire
+            passer au travers du tunnel vers le correspondant;
+        \item \texttt{dst-subnet}: le réseau distant dont les paquets sont à
+            recevoir depuis le correspondant.
+    \end{itemize}
+\end{itemize}
+
+La configuration des \glspl{tun-ipsec} a d'abord commencée avec ceux reliant les
+sites de production de Fontainebleau et d'Auxerre au central de La Défense dans
+le but de permettre la communication entre les pares-feux et le \gls{fmg} et le
+\gls{faz}. Pour assurer un service le plus constant possible, l'architecture
+prévoyait dès le départ d'avoir une redondance sur ces tunnels. Elle est
+réalisée entre sites grâce à l'option \texttt{monitor} des \acrlongpl{fgt}.
+Cette option permet de définir un tunnel principal et un tunnel secondaire et
+ainsi de n'avoir qu'un seul tunnel de connecté à la fois: le tunnel secondaire
+qui a l'option configurée surveille le tunnel principal et s'il arrête de
+fonctionner, alors le secondaire ne va chercher à se connecter au correspondant
+qu'à partir de ce moment-là, sinon il reste inactif; lorsque le tunnel principal
+revient à la vie, il se connecte alors et le secondaire s'éteint. Un exemple de
+phase 1 utilisant ce genre de fonctionnalité est mis à disposition en
+Figure~\ref{fig:fgt-auxr/ipsec-phase1}. Le tunnel primaire passe par le lien
+\gls{fi} et le secondaire par le \gls{bi}.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = 0.6\linewidth]{img/fgt-auxr/ipsec-phase1.png}
     \caption{Extrait d'une phase 1 inter-sites entre Auxerre et La Défense}%
     \label{fig:fgt-auxr/ipsec-phase1}
 \end{figure}
+
+En général, il est possible de n'avoir qu'une seule phase 2 par phase 1 dès lors
+qu'un seul réseau est utilisé des deux côtés du tunnel. Cependant, si un second
+réseau a besoin de passer à un des deux côtés, il faut ajouter une nouvelle
+phase 2 correspondante: chaque paire de sous-réseaux devant pouvoir communiquer
+pour une phase 1 donnée doit avoir sa phase 2 dédiée. Par exemple, le partenaire
+McPhy a plusieurs sites distants et plusieurs sous-réseaux distants par site, on
+peut en voir une conséquence sur les routes statiques montrées en
+Figure~\ref{fig:fgt-auxr/routes}. Les partenaires FillinDrive et BaxEnergy ont
+eux leurs infrastructures distantes hebergés chez des fournisseurs de
+\textit{cloud} qui ne permettent pas de configuration similaire à ce que fait
+l'option \texttt{monitor} de \acrlong{fgt}, mais seulement une bascule au niveau
+routage grâce à \gls{bgp}, les deux tunnels restent alors actifs à tout moment.
+Pour que le \gls{bgp} puisse s'établir entre les deux routeurs reliés par les
+\glspl{tun-ipsec}, il faut donc configurer une seconde phase 2 dédiée à la
+communication puremement \gls{bgp} et locale au lien. Un exemple d'une telle
+configuration est présentée en Figure~\ref{fig:fgt-auxr/ipsec-phase2}.
 
 \begin{figure}[h!]
     \centering
