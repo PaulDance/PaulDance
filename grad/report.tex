@@ -1136,6 +1136,43 @@ configuration est présentée en Figure~\ref{fig:fgt-auxr/ipsec-phase2}.
 \end{figure}
 \FloatBarrier{}
 
+Deux partenaires ont leurs infrastructures hébergées sur du \textit{cloud} qui
+ne permettent pas une redondance active-passive avec deux tunnels où le
+secondaire est éteint tant que le primaire fonctionne. Il a donc fallu pour ces
+partenaires mettre en place une redondance active-active avec une bascule
+assurée par \gls{bgp}. Une configuration équivalente avait été essayée avec du
+routage statique, mais ne foncitonnait pas car ces plates-formes ne permettent
+en général pas de configurer des routes statiques ayant des priorités définies.
+
+\acrfull{bgp} est un protocole standardisé de passerelle externe conçu pour
+échanger des informations de routage et de disponibilité entre systèmes
+autonomes (\gls{as}) de l'Internet. C'est un protocole de routage à vecteur de
+chemin puisque les décisions de routage sont effectuées sur la base de chemins,
+politiques réseaux ou ensembles de règles configurés par un administrateur
+réseau. Il permet ainsi de contrôler depuis un niveau assez haut les flux de
+l'Internet, ce qui est parfois nécessaire pour des raisons simplement
+géopolitiques. Un \gls{as} est une collection de préfixes de routage IP sous le
+contrôle d'un ou plusieurs opérateurs réseau au nom d'une seule entité ou
+domaine administratif et qui présente à l'Internet une politique de routage
+commune et clairement définie. Un tel système autonome est identifié par un
+\gls{asn}, un nombre entier originellement sur deux octets, maintenant quatre.
+C'est cet identifiant qui sert à configurer les politiques \gls{bgp}.
+
+La Figure~\ref{fig:fgt-auxr/bgp-neighbors} montre la configuration \gls{bgp}
+pour le partenaire FillinDrive. La section \texttt{config router bgp} est
+valable pour tous les voisins \gls{bgp}. Elle comporte notamment l'option
+\texttt{as} qui définit l'\gls{asn} que présente le routeur. Ces voisins sont
+renseignés dans la sous-section \texttt{config neighbor}. Chaque entrée a pour
+nom l'adresse du routeur distant et a pour paramètre principal
+\texttt{remote-as} l'\gls{asn} qu'il présente. On remarquera qu'entre les deux
+entrées qui configurent chacune le routage pour un des deux tunnels en
+redondance, il y a assez peu de différences, une est l'option \texttt{weight}:
+le poids des routes associées. Cela permet de définir des priorités entre les
+chemins équivalents, c'est-à-dire ici depuis l'\gls{as} local vers l'\gls{as}
+distant. Le poids de \texttt{100} est appliqué au tunnel passant par le lien
+\gls{fi} pour lui donner une priorité plus importante ($100 > 10$) et en faire
+ainsi le tunnel primaire.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = 0.6\linewidth]{img/fgt-auxr/bgp-neighbors.png}
@@ -1146,12 +1183,25 @@ configuration est présentée en Figure~\ref{fig:fgt-auxr/ipsec-phase2}.
     \label{fig:fgt-auxr/bgp-neighbors}
 \end{figure}
 
+La Figure~\ref{fig:fgt-auxr/bgp-nets} montre comment sont configurés les réseaux
+distribués aux voisins. Chaque entrée comporte une option principale
+\texttt{prefix} qui donne ce par quoi doit commencer une adresse pour être
+considérée comme faisant partie du réseau. Il ne peut donc pas y avoir toutes
+les possibilités fournies par les masques IP qui ne sont pas eux-mêmes de
+simples préfixes. Les réseaux ainsi définis sont cependant distribués à tous les
+voisins, ce qui n'est pas idéal lorsque plusieurs \gls{as} y sont reliés.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = 0.4\linewidth]{img/fgt-auxr/bgp-nets.png}
     \caption{Réseaux distribués par \gls{bgp} sur le site d'Auxerre}%
     \label{fig:fgt-auxr/bgp-nets}
 \end{figure}
+
+Les \acrlongpl{fgt} mettent alors à disposition la notion de liste d'accès
+(\textit{access list} en anglais) qui permet de configurer un filtre d'adresses.
+La Figure~\ref{fig:fgt-auxr/acl} en montre ainsi deux: une pour chaque
+partenaire concerné --- les prefixes sont donc bien différents.
 
 \begin{figure}[h!]
     \centering
@@ -1162,6 +1212,20 @@ configuration est présentée en Figure~\ref{fig:fgt-auxr/ipsec-phase2}.
     }%
     \label{fig:fgt-auxr/acl}
 \end{figure}
+
+Pour pouvoir être appliquée à un voisin, il faut que cette liste d'accès soit
+incluse dans une <<carte de routage>> (\textit{route map} en anglais) qui permet
+de décrire un ensemble de règles qui ont chacune une liste d'accès comme filtre
+d'adresse et un certain nombre d'autres options qui configurent les paramètres
+de la routes dynamique à créer en cas de correspondance avec le filtre. La
+différence entre les deux entrées montrées en
+Figure~\ref{fig:fgt-auxr/route-maps} réside en l'option \texttt{set-metric}:
+elle configure la priorité à envoyer à l'\gls{as} distant afin qu'il l'applique
+sur ses routes dynamiques de sa table. Elle est cette fois-ci inverse par
+rapport au poids, \texttt{10} est donc plus prioritaire que \texttt{100} et est
+alors utlisée pour le lien primaire \gls{fi}. Une fois appliquées aux
+configurations des voisins, ces \textit{route maps} constituent le dernier
+paramètre nécessaire pour mettre en place l'architecture souhaitée.
 
 \begin{figure}[h!]
     \centering
