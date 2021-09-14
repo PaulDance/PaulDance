@@ -1297,6 +1297,15 @@ rapidement que s'il fallait le configurer manuellement sur chacun d'entre-eux.
 \end{figure}
 \FloatBarrier{}
 
+J'ai par la suite été chargé de configurer les accès en \gls{vpn-tls} pour les
+collaborateurs d'Hynamics et de leurs partenaires. Cette opération est en grande
+partie faisable centralement depuis le \acrlong{fmg}. Il s'agit principalement
+de créer des associations de groupes d'utilisateurs à leurs droits accordés en
+termes de connexion et routes communiquées (Figure~\ref{fig:fmg/ssl-mappings}).
+Il faut ensuite bien évidemment aussi paramétrer de nouvelles règles de filtrage
+permettant la communication en \gls{vpn-tls} des utilisateurs avec les
+ressources de leur sous-réseau dédié.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = 0.8\linewidth]{img/fmg/ssl-mappings.png}
@@ -1306,6 +1315,19 @@ rapidement que s'il fallait le configurer manuellement sur chacun d'entre-eux.
     }%
     \label{fig:fmg/ssl-mappings}
 \end{figure}
+
+Fortinet utilise la notion de <<portail SSL>>, dont un exemple est présenté en
+Figure~\ref{fig:fmg/ssl-portal}, afin de décrire ces droits spécifiques et
+paramètres de connexion. Les trois options importantes pour l'utilisation que
+nous en faisions étaient le \textit{split tunneling}, les routes et les réseaux
+sources. Le \textit{split tunneling} consiste à ne pas rediriger tout le trafic
+au traver du tunnel \gls{vpn-tls}, mais uniquement celui à destination de ce qui
+est mis à disposition par la passerelle. Les routes sont les sous-réseaux
+accessibles depuis la passerelle et qui sont communiqués au client se connectant
+afin qu'il les enregistre dans sa table de routage. Les réseaux sources
+(\textit{source IP pools}) déterminent quelles plages d'adresses vont être
+utilisées pour y allouer dynamiquement des adresses sources locales pour les
+clients se connectant.
 
 \begin{figure}[h!]
     \centering
