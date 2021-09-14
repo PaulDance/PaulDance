@@ -266,18 +266,18 @@ partie pour les opérations de \gls{soc}.
 Ma mission était, d'un point de vue assez global, de participer aux divers
 projets et activités de l'équipe d'ingénieurs en \gls{integ} faisant partie du
 département <<Solutions de confiance>> d'\acrlong{ocd}. Cette équipe est
-elle-même composée de deux sous-équipes: le \gls{ocd-build} et le \gls{ocd-run}.
-Le \gls{ocd-build} est chargé d'une partie de la conception de l'architecture à
-mettre en place pour répondre aux besoins d'un client, puis surtout de son
+elle-même composée de deux sous-équipes: le \gls{build} et le \gls{run}.  Le
+\gls{build} est chargé d'une partie de la conception de l'architecture à mettre
+en place pour répondre aux besoins d'un client, puis surtout de son
 implémentation effective qui nécessite souvent une intervention matérielle et
 l'établissement de configurations logicielles cibles, pour enfin réaliser une
-migration vers le nouveau système. Le \gls{ocd-run} quant à lui est chargé
-d'assurer le bon fonctionnement du système implémenté par le \gls{ocd-build} de
-sorte qu'il soit opérationnel la majeure partie du temps, de surveiller la
-sécurité du parc informatique en question et donc réaliser le rôle de \gls{soc},
-mais aussi de faire évoluer les configurations logicielles au fur et à mesure
-des demandes du client par voie de tickets. J'ai, pour ma part, rejoint en
-particulier l'équipe \gls{ocd-build} pour la durée entière de ce stage.
+migration vers le nouveau système. Le \gls{run} quant à lui est chargé d'assurer
+le bon fonctionnement du système implémenté par le \gls{build} de sorte qu'il
+soit opérationnel la majeure partie du temps, de surveiller la sécurité du parc
+informatique en question et donc réaliser le rôle de \gls{soc}, mais aussi de
+faire évoluer les configurations logicielles au fur et à mesure des demandes du
+client par voie de tickets. J'ai, pour ma part, rejoint en particulier l'équipe
+\gls{build} pour la durée entière de ce stage.
 
 
 \section{Déroulé d'un projet}%
@@ -285,7 +285,7 @@ particulier l'équipe \gls{ocd-build} pour la durée entière de ce stage.
 
 Ces deux sous-équipes plus d'autres d'\gls{ocd} travaillent ensemble pour
 réaliser de nombreux projets. Le déroulé typique d'un projet est le suivant,
-principalement orienté du point de vue du \gls{ocd-build}:
+principalement orienté du point de vue du \gls{build}:
 
 \begin{itemize}
 
@@ -313,28 +313,28 @@ principalement orienté du point de vue du \gls{ocd-build}:
         conséquente, un ou plusieurs architectes de systèmes peuvent aussi
         intervenir.
 
-    \item Une fois la majeure partie de l'architecture conçue, le
-        \gls{ocd-build} commence alors à participer au projet pour tendre vers
-        une spécification précise des changements qui vont être réalisés ou de
-        l'infrastructure qui va être effectivement implémentée. Ceci commence en
-        général par une \gls{rli}. C'est une réunion de coordination interne à
-        \gls{ocd} en début de projet pour réaliser une transition entre les
-        \gls{presales} et les équipes de \gls{ocd-build} afin de transmettre les
-        informations importantes. Elle est en général relativement courte car il
-        s'agit principalement de se mettre d'accord sur ce qui va être présenté
-        au client et ainsi de préparer la \gls{rle}. Cette dernière est une
-        réunion de début de projet pour le \gls{ocd-build} suite à la \gls{rli}
-        cette fois-ci avec le client présent pour d'abord faire rencontrer les
+    \item Une fois la majeure partie de l'architecture conçue, le \gls{build}
+        commence alors à participer au projet pour tendre vers une spécification
+        précise des changements qui vont être réalisés ou de l'infrastructure
+        qui va être effectivement implémentée. Ceci commence en général par une
+        \gls{rli}. C'est une réunion de coordination interne à \gls{ocd} en
+        début de projet pour réaliser une transition entre les \gls{presales} et
+        les équipes de \gls{build} afin de transmettre les informations
+        importantes. Elle est en général relativement courte car il s'agit
+        principalement de se mettre d'accord sur ce qui va être présenté au
+        client et ainsi de préparer la \gls{rle}. Cette dernière est une réunion
+        de début de projet pour le \gls{build} suite à la \gls{rli} cette
+        fois-ci avec le client présent pour d'abord faire rencontrer les
         différentes personnes des deux côtés, puis commencer à préparer une
         spécification précise de l'implémentation à réaliser et le continuer
         selon la taille du projet dans les jours, semaines ou mois suivants lors
         d'une série d'ateliers techniques.
 
-    \item Le \gls{ocd-build} ayant réellement commencé le projet, ils vont
-        chercher à rédiger une spécification de l'architecture à implémenter et
-        déployer afin d'obtenir un accord de la part du client à son sujet et
-        donc ainsi d'avoir à portée de main une forme de guide contenant toutes
-        les informations à configurer sur les différents composants du système
+    \item Le \gls{build} ayant réellement commencé le projet, ils vont chercher
+        à rédiger une spécification de l'architecture à implémenter et déployer
+        afin d'obtenir un accord de la part du client à son sujet et donc ainsi
+        d'avoir à portée de main une forme de guide contenant toutes les
+        informations à configurer sur les différents composants du système
         global à mettre ne place. Cela permet aussi de proposer un cadre pour
         les changements en cours de route: si le client avait bien approuvé la
         spécification effective et qu'\acrlong{ocd} l'implémente en entier ou
@@ -384,7 +384,7 @@ principalement orienté du point de vue du \gls{ocd-build}:
     \end{itemize}
 
     \item Une fois la spécification rédigée, ajustée et approuvée par le client,
-        l'équipe d'ingénieurs \gls{ocd-build} dédiée au projet commence
+        l'équipe d'ingénieurs \gls{build} dédiée au projet commence
         l'implémentation. Cela démarre régulièrement par une étape de
         \gls{staging}: placer les équipements dans un environnement de test qui
         s'approche le plus possible de l'environnement de production effectif.
@@ -405,8 +405,8 @@ principalement orienté du point de vue du \gls{ocd-build}:
         déployée et configurée petit à petit jusqu'à atteindre un état cible ou
         presque.
 
-    \item Quand l'implémentation arrive vers sa fin, le \gls{ocd-build} commence
-        à rédiger en parallèle un \gls{dtv} par site déployé. Il regroupe un
+    \item Quand l'implémentation arrive vers sa fin, le \gls{build} commence à
+        rédiger en parallèle un \gls{dtv} par site déployé. Il regroupe un
         ensemble de fiches de tests d'acceptation à effectuer avec succès pour
         considérer le déploiement du site et la migration globale comme des
         succès, et ainsi que le site soit considéré comme livré au client. Ces
@@ -418,7 +418,7 @@ principalement orienté du point de vue du \gls{ocd-build}:
         itérations, comme la majeure partie des documents produits.
 
     \item Après que le \gls{dtv} d'un site est bien validé et que son
-        implémentation est terminée par le \gls{ocd-build}, une \gls{vabf} est
+        implémentation est terminée par le \gls{build}, une \gls{vabf} est
         planifiée et effectuée avec le client. Il s'agit d'une session lors de
         laquelle tous les tests d'acceptation du \gls{dtv} associé sont exécutés
         et leur résultats respectifs rapportés dans le document. Si un nombre
@@ -432,16 +432,16 @@ principalement orienté du point de vue du \gls{ocd-build}:
         estimées non courantes les systèmes ne fonctionnent pas comme attendu,
         il est alors possible de considérer la \gls{vabf} comme un succès avec
         quelques retenues tout de même. Les problèmes sont réglés dans les jours
-        qui suivent par le \gls{ocd-build} et vérifiés en dehors d'une seconde
+        qui suivent par le \gls{build} et vérifiés en dehors d'une seconde
         \gls{vabf}.
 
     \item Si les résultats de tous les tests sont des succès, la \gls{vabf} est
-        bien complétée, les ingénieurs \gls{ocd-build} sont libérés du projet et
-        le site en question entre dans une période dite de \gls{vsr}. Pendant
-        cette période d'une durée définie en accord avec le client, celui-ci
-        utilise l'environnement de production cible déployé et fonctionnel du
-        point de vue des tests déjà effectués, mais cette fois-ci pour vérifier
-        que cela reste le cas dans la durée, c'est-à-dire qu'il n'y ait pas de
+        bien complétée, les ingénieurs \gls{build} sont libérés du projet et le
+        site en question entre dans une période dite de \gls{vsr}. Pendant cette
+        période d'une durée définie en accord avec le client, celui-ci utilise
+        l'environnement de production cible déployé et fonctionnel du point de
+        vue des tests déjà effectués, mais cette fois-ci pour vérifier que cela
+        reste le cas dans la durée, c'est-à-dire qu'il n'y ait pas de
         comportement erratique ou d'instabilité seulement à certains moments de
         la journée par exemple, ou lorsque les systèmes sont soumis à de fortes
         charges, ou encore de temps en temps de manière totalement stochastique.
@@ -449,16 +449,16 @@ principalement orienté du point de vue du \gls{ocd-build}:
         d'\acrlong{ocd}, mais peut être étendue principalement sur demande du
         client pour des projets dont ce genre d'aspects est jugé
         particulièrement critique au bon fonctionnement global du système
-        considéré. Lors de la \gls{vsr}, l'équipe de \gls{ocd-build} réalise les
+        considéré. Lors de la \gls{vsr}, l'équipe de \gls{build} réalise les
         corrections demandées par le client en mode <<meilleur effort>>,
         c'est-à-dire que les ingénieurs en question vont y passer le temps
         qu'ils peuvent, mais n'en feront pas pour autant une priorité puisqu'ils
         ne sont plus affectés au projet concerné et peuvent très bien faire déjà
         partie d'un autre projet. Cependant, si un dysfonctionnement majeur se
         produit et qu'il s'agit d'une erreur de la part de l'équipe, \gls{ocd}
-        se doit de refaire une itération de \gls{ocd-build}, mais s'il s'agit
-        d'un problème qui ne leur est pas attribuable, le client devra alors
-        payer pour une nouvelle itération s'il le souhaite.
+        se doit de refaire une itération de \gls{build}, mais s'il s'agit d'un
+        problème qui ne leur est pas attribuable, le client devra alors payer
+        pour une nouvelle itération s'il le souhaite.
 
     \item Optionnellement, un \gls{dex} est rédigé en parallèle et sur demande
         du client. C'est une compilation systématique des procédures et des
@@ -471,23 +471,23 @@ principalement orienté du point de vue du \gls{ocd-build}:
         effectivement implémentée \textit{versus} celle initialement prévue dans
         un éventuel \gls{dsd}. Ce genre de document est en général produit
         lorsque le client va être en mesure d'administrer son propre système
-        potentiellement sans aucune intervention de la part du \gls{ocd-run}, et
+        potentiellement sans aucune intervention de la part du \gls{run}, et
         pour ainsi lui fournir l'ensemble des éléments pratiques nécessaires de
         sorte que toutes ses opérations régulières puissent être réalisées.
 
     \item Quand toutes ces étapes-là sont bien complétées, le projet est en
         quelque sorte terminé, mais l'interaction entre \gls{ocd} et le client
-        continue cependant par une transition vers le \gls{ocd-run}. Après une
-        passation des informations importantes des équipes du \gls{ocd-build}
-        vers le \gls{ocd-run}, celui-ci prend pleinement possession des
-        interventions à réaliser sur le parc informatique précédemment déployé
-        et ainsi assurer le rôle de \gls{soc} si cela fait partie du contrat
-        négocié avec le client. Quelconque modification que souhaite faire le
-        client, si encore une fois ils n'ont pas exprimé et négocié dans le
-        contrat le besoin d'aussi pouvoir gérer les systèmes eux-mêmes, il devra
-        alors ouvrir un ticket auprès du \gls{ocd-build} afin que ces derniers
-        appliquent le changement souhaité. Un tarif au ticket ou groupe de
-        tickets est appliqué.
+        continue cependant par une transition vers le \gls{run}. Après une
+        passation des informations importantes des équipes du \gls{build} vers
+        le \gls{run}, celui-ci prend pleinement possession des interventions à
+        réaliser sur le parc informatique précédemment déployé et ainsi assurer
+        le rôle de \gls{soc} si cela fait partie du contrat négocié avec le
+        client. Quelconque modification que souhaite faire le client, si encore
+        une fois ils n'ont pas exprimé et négocié dans le contrat le besoin
+        d'aussi pouvoir gérer les systèmes eux-mêmes, il devra alors ouvrir un
+        ticket auprès du \gls{build} afin que ces derniers appliquent le
+        changement souhaité. Un tarif au ticket ou groupe de tickets est
+        appliqué.
 
 \end{itemize}
 
@@ -581,21 +581,21 @@ général informatiques~\cite{rack-unit}. Une telle baie contient typiquement 42
 unités. La salle de tests est principalement utilisée pour déployer des
 maquettes pour des projets client afin de servir d'environnement de
 pré-production (\gls{staging}).  Elle permet aussi aux différents ingénieurs
-\gls{ocd-build} et \gls{ocd-run} de mettre en place leurs propres essais dans le
-but par exemple de se familiariser avec les produits d'un fabriquant donné ou
-bien encore d'en soumettre à de grosses charges afin de déterminer si les
-capacités théoriques annoncées sont en pratique vérifiées.
+\gls{build} et \gls{run} de mettre en place leurs propres essais dans le but par
+exemple de se familiariser avec les produits d'un fabriquant donné ou bien
+encore d'en soumettre à de grosses charges afin de déterminer si les capacités
+théoriques annoncées sont en pratique vérifiées.
 
 Les bureaux de la région parisienne ayant emménagés relativement récemment dans
 les locaux de Massy, la salle de tests avait en particulier été transportée et
 installée en un temps un peu trop court pour tout faire au mieux. Certaines des
 infrastructures ont donc été mises en place de manière incomplète ou mal
 documentée. Notre rôle en début de stage était alors de réaliser une revue la
-plus complète possible des baies du \gls{ocd-build} et surtout celles dont
-certaines parties contenaient des équipements internes, c'est-à-dire ne faisant
-pas partie d'une maquette client. Nous devions vérifier que les choses étaient
-bien installées comme il le fallait et retirer ce qui n'avait désormais plus sa
-place dans la salle. Ensuite, nous nous sommes occupés d'assurer une meilleure
+plus complète possible des baies du \gls{build} et surtout celles dont certaines
+parties contenaient des équipements internes, c'est-à-dire ne faisant pas partie
+d'une maquette client. Nous devions vérifier que les choses étaient bien
+installées comme il le fallait et retirer ce qui n'avait désormais plus sa place
+dans la salle. Ensuite, nous nous sommes occupés d'assurer une meilleure
 documentation des baies en étiquetant la majeure partie des équipements présents
 ainsi que les divers câbles les reliant. Nous en faisions de même dans les
 configurations des équipements en changeant leur nom d'hôte et en ajoutant des
@@ -804,7 +804,7 @@ comme domaine d'adressage pour mettre en place le partitionnement souhaité. Les
 \subsection{Démarrage et premières opérations}%
 \label{sub:mission::main::start}
 
-Le projet commence pour le \gls{ocd-build}, tel qu'expliqué un peu plus tôt à la
+Le projet commence pour le \gls{build}, tel qu'expliqué un peu plus tôt à la
 Section~\ref{sec:mission::deroule-projet}, par une \acrfull{rli} relativement
 courte lors de laquelle les membres internes sont introduits et présentés. Les
 \gls{presales} nous transmettent aussi les informations importantes et le
@@ -935,15 +935,15 @@ remplie afin d'acter que les tests s'étaient bien déroulés à ce moment-là.
 À partir de ce moment-là, les collaborateurs d'Hynamics devaient revenir vers
 nous dès qu'ils auraient rempli d'une manière la plus exhaustive et correcte
 possible un <<fichier de collecte>>. Celui-ci résume en un endroit l'ensemble
-des informations que le \gls{ocd-build} ne peut pas déduire de ce qui a été
-discuté en réunions et de l'architecture haut niveau précédemment conçue,
-c'est-à-dire les informations métier. Cela comprend la liste des \glspl{vlan}
-par site, les adresses des sous-réseaux du site et celle du pare-feu dedans, les
-routes particulières, les paramètres \gls{vpn-tls}, les différents
-\glspl{tun-ipsec} et surtout les règles de filtrage. Avec cette fiche bien
-remplie, la rédaction d'un \gls{dsd} et l'implémentation qui s'ensuit seraient
-grandement facilitées et en particulier ici, elle deviendraient presque
-immédiates au vu de la taille du projet relativement petite.
+des informations que le \gls{build} ne peut pas déduire de ce qui a été discuté
+en réunions et de l'architecture haut niveau précédemment conçue, c'est-à-dire
+les informations métier. Cela comprend la liste des \glspl{vlan} par site, les
+adresses des sous-réseaux du site et celle du pare-feu dedans, les routes
+particulières, les paramètres \gls{vpn-tls}, les différents \glspl{tun-ipsec} et
+surtout les règles de filtrage. Avec cette fiche bien remplie, la rédaction d'un
+\gls{dsd} et l'implémentation qui s'ensuit seraient grandement facilitées et en
+particulier ici, elle deviendraient presque immédiates au vu de la taille du
+projet relativement petite.
 
 Cependant, cette fiche ne s'est pour ainsi dire jamais vraiment remplie
 complètement. En effet, il y a d'abord eu des difficultés liées simplement au
@@ -972,13 +972,13 @@ fichier de collecte que nous avions reçues et qui étaient utilisables, mais
 aussi certaines ajoutées comme les architectures physiques et logiques, le
 détail du raccordement physique interface par interface, les routes, le
 \gls{vpn-tls}, les \glspl{tun-ipsec}, la \acrfull{ha}, l'administration et la
-supervision par le \gls{soc} du \gls{ocd-run}. Comme expliqué ci-dessus, le
-manque d'informations arrivées à temps nous a fait rédiger une première version
-assez incomplète et par la suite plusieurs itérations pour finalement assez peu
-de valeur ajoutée puisque la configuration évoluait en général avant le
-\gls{dsd}, ce qui lui faisait alors perdre une bonne partie de son intérêt de
-spécification au préalable. C'est allé jusqu'à continuer ça même après mon
-départ suite à la fin de ma période de stage.
+supervision par le \gls{soc} du \gls{run}. Comme expliqué ci-dessus, le manque
+d'informations arrivées à temps nous a fait rédiger une première version assez
+incomplète et par la suite plusieurs itérations pour finalement assez peu de
+valeur ajoutée puisque la configuration évoluait en général avant le \gls{dsd},
+ce qui lui faisait alors perdre une bonne partie de son intérêt de spécification
+au préalable. C'est allé jusqu'à continuer ça même après mon départ suite à la
+fin de ma période de stage.
 
 En parallèle, les pares-feux sont paramétrés pour simuler l'environnement de
 production tout en restant dans la zone de test: nous faisions avancer la
@@ -1323,7 +1323,7 @@ configuration est présentée en Figure~\ref{fig:fgt-auxr/ipsec-phase2}.
 \begin{figure}[h!]
     \centering
     \includegraphics[width = \linewidth]{img/fmg/vips.png}
-    \caption{Liste des VIPs configurées par et pour le \gls{ocd-run}}%
+    \caption{Liste des VIPs configurées par et pour le \gls{run}}%
     \label{fig:fmg/vips.png}
 \end{figure}
 
@@ -1336,11 +1336,11 @@ configuration possible est de rediriger tout paquet y arrivant avec l'adresse
 VIP configurée comme adresse destination vers une autre adresse dans le réseau.
 Il est aussi possible de faire ceci en fonction du contenu, ce qui peut être
 utilisé pour mettre en place des formes de passerelles de redirection. La
-première option a été choisie par le \gls{ocd-run} car les adresses des
-interfaces \gls{vlan} dans les sous-réseaux dédiés au client, à l'administration
-et à la supervision rentraient en conflit avec le plan d'adressage interne au
-\gls{soc} et à \gls{ocd}. Ces VIPs leur ont donc permis de joindre les machines
-en question mais comme si elles étaient directement dans les sous-réseaux qu'ils
+première option a été choisie par le \gls{run} car les adresses des interfaces
+\gls{vlan} dans les sous-réseaux dédiés au client, à l'administration et à la
+supervision rentraient en conflit avec le plan d'adressage interne au \gls{soc}
+et à \gls{ocd}. Ces VIPs leur ont donc permis de joindre les machines en
+question mais comme si elles étaient directement dans les sous-réseaux qu'ils
 avaient choisis au lieu de celui effectivement utilisé.
 
 \section{Résumé des finances}%
