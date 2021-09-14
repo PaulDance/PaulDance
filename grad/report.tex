@@ -1235,6 +1235,15 @@ paramètre nécessaire pour mettre en place l'architecture souhaitée.
 \end{figure}
 \FloatBarrier{}
 
+Après avoir configuré les pares-feux avec des paramètres basiques, je les ai
+reliés au \acrlong{fmg} et au \acrlong{faz} situés sur le site central de La
+Défense. \acrfull{fmg} est une solution de gestion centralisée des produits
+Fortinet, en particulier les pares-feux. Elle permet notamment par rapport à ces
+derniers de stocker certaines objets important à un bonne partie de leur
+configuration tels que les adresses (Figure~\ref{fig:fmg/addresses}), les
+services (Figure~\ref{fig:fmg/services}) et les interfaces normalisées
+(Figure~\ref{fig:fmg/interfaces}).
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = \linewidth]{img/fmg/addresses.png}
@@ -1249,12 +1258,36 @@ paramètre nécessaire pour mettre en place l'architecture souhaitée.
     \label{fig:fmg/services}
 \end{figure}
 
+Une interface normalisée est une interface utilisable dans les règles de
+filtrage d'un \gls{pp} mais qui regroupe en réalité un ensemble de <<vraies>>
+interfaces, une pour chaque machine effective.  La vraie interface est
+sélectionné quand le \gls{pp} est appliqué à une certaine machine. Cela permet
+donc de créer des règles valables pour de nombreuses machines sans pour autant
+devoir se répéter.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = \linewidth]{img/fmg/interfaces.png}
     \caption{Interfaces normalisées sur le \acrlong{fmg}}%
     \label{fig:fmg/interfaces}
 \end{figure}
+
+Le \acrlong{fmg} introduit aussi la notion de \gls{pp}. Un \gls{pp} est l'unité
+de configuration qui comporte principalement les règles de filtrage des
+différents pares-feux gérés par le \gls{fmg}, mais aussi tous les objets dont
+elles dépendent tels qu'adresses, interfaces, services, utilisateurs ou groupe
+d'utilisateurs, et qui peut être appliqué à un ou plusieurs pares-feux. Nous
+avons dans notre cas fait un \gls{pp} par pare-feu car les configurations
+n'avaient que trop peu de similitudes pour réaliser une seule suite de règles
+communes. La Figure~\ref{fig:fmg/policy-packages} en montre un exemple.
+L'intérêt du \acrlong{fmg} se fait remarquer surtout lorsqu'un objet commun à
+plusieurs \glspl{pp} est modifié. Si par exemple un utilisateur est ajouté à un
+groupe qui est utilisé dans certaines règles de plusieurs \glspl{pp}, le
+\acrlong{fmg} va alors considérer que tous les \glspl{pp} concernés ont été
+modifiés et qu'il faut les envoyer aux machines qu'ils paramètrent de sorte
+qu'elles soient mises à jour. On peut faire se dernier point de manière
+parallélisée et l'utilisateur est ainsi ajouté à tous les pares-feux bien plus
+rapidement que s'il fallait le configurer manuellement sur chacun d'entre-eux.
 
 \begin{figure}[h!]
     \centering
