@@ -1358,6 +1358,59 @@ décalées à au moins un mois après la fin de celui-ci. Le seul site de produc
 qui a été presque entièrement terminé puis validé en \gls{vabf} a donc été celui
 d'Auxerre.
 
+Cette \gls{vabf} avait été organisée pour être effectuée sur une journée entière
+en réalisant une séance par partenaire, en commençant par Hynamics. Cette
+première séance nous a permis d'exécuter la majeure partie des tests prévus dans
+le \gls{dtv} du site et ainsi notamment de vérifier la bonne communication du
+\acrlong{fgt} avec le \acrlong{fmg} et le \acrlong{faz}, le bon fonctionnement
+de la redondance physique en cas de débranchement (\textit{i.e.} perte) d'un des
+deux pares-feux de la paire, de même quand un des liens Internet ne fonctionne
+plus pour un des deux pares-feux, \ldots{} Les opérations que cherche à réaliser
+le \gls{run} ont aussi été vérifiées avec eux présents, telles que la
+supervision, la sauvegardes des configurations et l'intégration dans la base de
+données de gestion automatisé des équipements. Viennent ensuite les tests
+d'ordre plutôt applicatif, à commencer pour Hynamics par leur accès en
+\gls{vpn-tls}.
+
+Ceux-ci se sont rapidement heurté à un problème simple mais important: le
+commutateur central du site n'était pas administrable et ne pouvait en
+particulier pas gérer les \glspl{vlan}. Toute communication effectuée à
+distance, c'est-à-dire sans être relié directement par un câble, et tentée avec
+un équipement autre que le pare-feu ne pouvait donc pas fonctionner. Cela a eu
+un impact immédiat: que très peu de tests applicatifs ont pu être réalisés, que
+ça soit avec Hynamics, mais surtout avec les partenaires pendant le reste de la
+journée. Cet oubli de notre part est en quelque sorte double: les \gls{presales}
+n'avaient pas mentionné ce point important en début de projet et nous de notre
+côté \gls{build} leur avions fait confiance pour l'avoir justement précisé sans
+que nous le redemandions pour autant car cette partie purement locale ne faisait
+pas partie des choses dont nous devions nous préoccuper dans le cadre du projet
+et relèvent plus de la responsabilité du client et de ses partenaires.  Un
+nouveau commutateur a donc dû être acheté quelque peu dans l'urgence le jour
+même pour ensuite être configuré le soir et le lendemain.
+
+Le commutateur acheté était un Dell mais exécutant Cisco IOS~\cite{cisco-ios}.
+La configuration à implémenter restait relativement simple: il s'agissait
+d'ajouter quelques \glspl{vlan} (Figure~\ref{fig:sw-auxr/vlans}) au moins un par
+partenaire et ensuite de paramétrer les interfaces physiques reliées aux divers
+équipements du site. On a par exemple dédiées aux deux pares-feux de la paire en
+Figure~\ref{fig:sw-auxr/fw-ifs} et celles pour le serveur ESXi en
+Figure~\ref{fig:sw-auxr/esxi-ifs}. Plus précisément, ce dernier n'en a en
+réalité qu'une qui lui est affectée, l'autre permet de l'administrer si jamais
+une personne est présente sur site. En effet, ce serveur expose une interface
+d'administration Web que nous avons configuré pour communiquer sur le \gls{vlan}
+\texttt{10}, c'est-à-dire celui d'Hynamics. Il héberge surtout une machine
+virtuelle pour le partenaire BaxEnergy qui doit donc être dans son propre
+\gls{vlan}, le numéro \texttt{70}. D'où la configuration présentée de la
+première interface. Pour la seconde, il s'agit simplement de pouvoir se mettre
+dans le \gls{vlan} d'Hynamics si on est physiquement sur site mais sans pour
+autant devoir configurer le système d'exploitation de son poste pour avoir une
+interface \gls{vlan} puisque le commutateur est là en mode \texttt{access}.
+Celui-ci s'occupe d'ajouter à chaque trame Ethernet l'en-tête IEEE 802.1q avec
+un identifiant de \gls{vlan} fixé, ici le \texttt{10}. L'autre mode utilisé dans
+le reste des interfaces présentées est le \texttt{trunk} qui permet de
+rassembler en un lien des trames étant étiquetées avec des identifiants
+\gls{vlan} faisant partie d'une liste configurée.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width = 0.4\linewidth]{img/sw-auxr/vlans.png}
@@ -1384,6 +1437,39 @@ d'Auxerre.
     }%
     \label{fig:sw-auxr/esxi-ifs}
 \end{figure}
+\FloatBarrier{}
+
+Nous avons tout de même été en mesure de réaliser de nombreuses opérations lors
+de la journée initialement dédiée à la \gls{vabf} entière. La plupart des
+partenaires n'avaient malheureusement pas terminé la configuration de leur côté
+alors que nous leur avions explicitement demandé de le faire en avance afin
+d'éviter de perdre du temps inutilement et de potentiellement devoir remettre
+les choses aux jours suivants, ce qui a dû finalement être fait pour plusieurs
+raisons, le mauvais commutateur entre autres. Nous avons donc dû revoir avec eux
+les paramètres des \glspl{tun-ipsec} que nous leur avions fait parvenir les
+jours ou semaines précédents, les aider à les appliquer dans leurs outils
+respectifs et résoudre les problèmes apparaissant au fur et à mesure de la
+séance. Le \gls{vpn-tls} n'a pas particulièrement posé de souci puisque les
+réglages étaient surtout de notre côté et l'utilisation du leur se repose sur le
+FortiClient utilisé.
+
+Il y a cependant eu un problème avec le partenaire BaxEnergy qui est hébergé
+chez Microsoft Azure qui nous a demandé pas mal de temps à investiguer. En
+effet, ils avaient commencé avec une configuration active-passive car plus
+simple et n'utilisant qu'une seule passerelle publique.  Seulement, la
+redondance ne fonctionnait pas comme souhaité car les routes statiques
+n'acceptaient pas de priorité et la bascule ne permettait donc pas de revenir au
+tunnel primaire dès lors qu'il revenait à la vie. Il a donc fallu passer à une
+configuration active-active et assurer la bascule avec \gls{bgp} de manière
+similaire à ce qui était déjà fait avec l'autre partenaire FillinDrive.
+Malheureusement, même après avoir revu maintes fois les paramètres appliqués et
+essayé de nombreuses combinaisons, nous n'avons pas réussi à le faire
+fonctionner correctement. Plus précisément, les deux tunnels eux se montaient
+sans erreur, tandis que le \gls{bgp} fonctionnait sur le tunnel primaire mais
+pas au travers du secondaire: il semblait être refusé immédiatement du coté
+d'Azure. Le partenaire BaxEnergy a alors dû se résigner à ouvrir un ticket de
+support auprès de Microsoft afin d'élucider le problème car tout semblait
+pointer vers une erreur de leur côté.
 
 \FloatBarrier{}
 \subsection{Transferts de connaissances}%
