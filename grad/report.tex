@@ -1142,7 +1142,7 @@ ne permettent pas une redondance active-passive avec deux tunnels où le
 secondaire est éteint tant que le primaire fonctionne. Il a donc fallu pour ces
 partenaires mettre en place une redondance active-active avec une bascule
 assurée par \gls{bgp}. Une configuration équivalente avait été essayée avec du
-routage statique, mais ne foncitonnait pas car ces plates-formes ne permettent
+routage statique, mais ne fonctionnait pas car ces plates-formes ne permettent
 en général pas de configurer des routes statiques ayant des priorités définies.
 
 \acrfull{bgp} est un protocole standardisé de passerelle externe conçu pour
@@ -1202,7 +1202,7 @@ voisins, ce qui n'est pas idéal lorsque plusieurs \gls{as} y sont reliés.
 Les \acrlongpl{fgt} mettent alors à disposition la notion de liste d'accès
 (\textit{access list} en anglais) qui permet de configurer un filtre d'adresses.
 La Figure~\ref{fig:fgt-auxr/acl} en montre ainsi deux: une pour chaque
-partenaire concerné --- les prefixes sont donc bien différents.
+partenaire concerné --- les préfixes sont donc bien différents.
 
 \begin{figure}[h!]
     \centering
@@ -1224,7 +1224,7 @@ Figure~\ref{fig:fgt-auxr/route-maps} réside en l'option \texttt{set-metric}:
 elle configure la priorité à envoyer à l'\gls{as} distant afin qu'il l'applique
 sur ses routes dynamiques de sa table. Elle est cette fois-ci inverse par
 rapport au poids, \texttt{10} est donc plus prioritaire que \texttt{100} et est
-alors utlisée pour le lien primaire \gls{fi}. Une fois appliquées aux
+alors utilisée pour le lien primaire \gls{fi}. Une fois appliquées aux
 configurations des voisins, ces \textit{route maps} constituent le dernier
 paramètre nécessaire pour mettre en place l'architecture souhaitée.
 
@@ -1322,8 +1322,8 @@ Figure~\ref{fig:fmg/ssl-portal}, afin de décrire ces droits spécifiques et
 paramètres de connexion. Les trois options importantes pour l'utilisation que
 nous en faisions étaient le \textit{split tunneling}, les routes et les réseaux
 sources. Le \textit{split tunneling} consiste à ne pas rediriger tout le trafic
-au traver du tunnel \gls{vpn-tls}, mais uniquement celui à destination de ce qui
-est mis à disposition par la passerelle. Les routes sont les sous-réseaux
+au travers du tunnel \gls{vpn-tls}, mais uniquement celui à destination de ce
+qui est mis à disposition par la passerelle. Les routes sont les sous-réseaux
 accessibles depuis la passerelle et qui sont communiqués au client se connectant
 afin qu'il les enregistre dans sa table de routage. Les réseaux sources
 (\textit{source IP pools}) déterminent quelles plages d'adresses vont être
@@ -1341,7 +1341,7 @@ clients se connectant.
 \subsection{Mise en place des tests et migration}%
 \label{sub:mission::main::tests}
 
-Une fois l'implémentation éffectuée, il s'agit ensuite de préparer puis réaliser
+Une fois l'implémentation effectuée, il s'agit ensuite de préparer puis réaliser
 une suite de tests afin de confirmer que tout fonctionne comme prévu. Nous avons
 donc préparé un \acrfull{dtv} par site en parallèle de la fin de
 l'implémentation. Un tel \gls{dtv} est relu, corrigé puis validé par le client
@@ -1670,7 +1670,7 @@ toujours agréable à entendre.
 \label{sec:bilan::ret-exp}
 
 En somme, ce stage aura été pour moi une découverte d'un domaine de la sécurité
-et d'une classe de métiers que je n'avais que très brièvement entre-aperçus
+et d'une classe de métiers que je n'avais que très brièvement entr'aperçus
 auparavant: l'\gls{integ} et le \gls{build} de manière générale. Je n'avais en
 effet qu'un peu pratiqué le côté plutôt offensif de la sécurité par le passé.
 Aborder le côté défensif et même pré-attaque au travers du prisme l'\gls{integ}
@@ -1706,7 +1706,7 @@ utilisait ne fonctionnaient pas comme prévu nous demandait de réfléchir à
 nouveau au plus de facettes du problème possible et ainsi d'approfondir notre
 connaissance les concernant afin de le résoudre. Enfin, les équipes projet sont
 souvent assez petites, je n'ai personnellement donc pas ressenti un sentiment
-d'apartenance à l'équipe globale et de travail en groupe que j'ai pu en faire
+d'appartenance à l'équipe globale et de travail en groupe que j'ai pu en faire
 l'expérience par le passé.
 
 
@@ -1733,7 +1733,7 @@ d'implémenter la bonne architecture. Cela se passait d'ailleurs plutôt bien.
 \label{sec:conclu::persp}
 
 Concrètement, \acrlong{ocd} ne m'a pas proposé d'emploi en contrat à durée
-indeterminée pour faire suite à mon stage: ils accueillent en général les longs
+indéterminée pour faire suite à mon stage: ils accueillent en général les longs
 stagiaires par paire au sein de l'équipe d'\gls{integ}, mais sans nécessairement
 faire suivre vers une offre d'emploi. En réalité, cela ne m'a pas tant gêné que
 ça puisque je ne souhaitais finalement pas continuer dans ce domaine-là. Il est
