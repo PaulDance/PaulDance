@@ -928,7 +928,9 @@ si une pièce de matériel était défectueuse, en particulier le processeur, la
 mémoire vive, le disque dur, la carte réseau, etc\ldots{} Cela permet de gérer
 ce genre de cas le plus tôt possible et directement au sein d'\gls{ocd}. Pour
 chaque équipement, une petite <<Fiche de Contrôle Qualité>> devait donc être
-remplie afin d'acter que les tests s'étaient bien déroulés à ce moment-là.
+remplie afin d'acter que les tests s'étaient bien déroulés à ce moment-là. Un
+exemple d'un telle fiche est présenté en Annexe~\ref{sec:annexes::doc-hy}
+(Figure~\ref{fig:doc-hy/fcq}).
 
 \subsection{Collecte des informations et déploiement sur sites}%
 \label{sub:mission::main::collec}
@@ -944,7 +946,8 @@ particulières, les paramètres \gls{vpn-tls}, les différents \glspl{tun-ipsec}
 surtout les règles de filtrage. Avec cette fiche bien remplie, la rédaction d'un
 \gls{dsd} et l'implémentation qui s'ensuit seraient grandement facilitées et en
 particulier ici, elle deviendraient presque immédiates au vu de la taille du
-projet relativement petite.
+projet relativement petite. Un exemple d'une partie d'un fichier de collecte est
+présenté en Annexe~\ref{sec:annexes::doc-hy} (Figure~\ref{fig:doc-hy/collect}).
 
 Cependant, cette fiche ne s'est pour ainsi dire jamais vraiment remplie
 complètement. En effet, il y a d'abord eu des difficultés liées simplement au
@@ -979,7 +982,8 @@ incomplète et par la suite plusieurs itérations pour finalement assez peu de
 valeur ajoutée puisque la configuration évoluait en général avant le \gls{dsd},
 ce qui lui faisait alors perdre une bonne partie de son intérêt de spécification
 au préalable. C'est allé jusqu'à continuer ça même après mon départ suite à la
-fin de ma période de stage.
+fin de ma période de stage. Le plan du \gls{dsd} est présenté en
+Annexe~\ref{sec:annexes::doc-hy} (Figure~\ref{fig:doc-hy/dsd}).
 
 En parallèle, les pares-feux sont paramétrés pour simuler l'environnement de
 production tout en restant dans la zone de test: nous faisions avancer la
@@ -1345,7 +1349,9 @@ Une fois l'implémentation effectuée, il s'agit ensuite de préparer puis réal
 une suite de tests afin de confirmer que tout fonctionne comme prévu. Nous avons
 donc préparé un \acrfull{dtv} par site en parallèle de la fin de
 l'implémentation. Un tel \gls{dtv} est relu, corrigé puis validé par le client
-avant d'effectuer les tests en séance lors d'une \acrfull{vabf}.
+avant d'effectuer les tests en séance lors d'une \acrfull{vabf}. Un exemple de
+fiche de tests complétée est présenté en Annexe~\ref{sec:annexes::doc-hy}
+(Figure~\ref{fig:doc-hy/dtv}).
 
 Nous avons d'abord réalisé la \gls{vabf} pour le site de La Défense, tout
 simplement car il s'agissait du plus facile à implémenter et à tester. Le site
@@ -1452,7 +1458,9 @@ jours ou semaines précédents, les aider à les appliquer dans leurs outils
 respectifs et résoudre les problèmes apparaissant au fur et à mesure de la
 séance. Le \gls{vpn-tls} n'a pas particulièrement posé de souci puisque les
 réglages étaient surtout de notre côté et l'utilisation du leur se repose sur le
-FortiClient utilisé.
+FortiClient utilisé. Un exemple de fiche rassemblant les paramètres de tunnels
+et communiquée à un des partenaires est présentée en
+Annexe~\ref{sec:annexes::doc-hy} (Figure~\ref{fig:doc-hy/ipsec-tun}).
 
 Il y a cependant eu un problème avec le partenaire BaxEnergy qui est hébergé
 chez Microsoft Azure qui nous a demandé pas mal de temps à investiguer. En
