@@ -856,7 +856,7 @@ client qui gère toutes les communications effectives avec le serveur. Ainsi
 toutes les communications à destination de \texttt{172.20.42.0/24} se font bien
 puisque le noyau les redirige vers le client, et le reste n'est pas perturbé
 puisque la route ne redirige que ce qui est à destination du réseau en question.
-Cette caractéristique de maintient de communications séparées est souvent nommée
+Cette caractéristique de maintien de communications séparées est souvent nommée
 en anglais <<\textit{split tunneling}>>.  Évidemment, il est tout à fait
 possible de l'empêcher: il suffit de préciser côté serveur que la seule route à
 envoyer est \texttt{0.0.0.0/0}, c'est-à-dire le réseau qui englobe toutes les
