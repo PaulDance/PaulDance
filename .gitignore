@@ -18,5 +18,7 @@
 **/*.glo
 **/*.ist
 **/*.lof
+**/*.nav
+**/*.snm
 **/*.run.xml
 **/*.toc
