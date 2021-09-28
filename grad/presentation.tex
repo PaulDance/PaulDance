@@ -1,0 +1,70 @@
+\documentclass[french, a4paper]{beamer}
+\usepackage[french]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{times}
+\usepackage{beamerthemeWarsaw}
+\usepackage{caption}[]
+\usepackage{subcaption}
+% \usetheme{Berlin}
+\usecolortheme{seagull}
+\usefonttheme{serif}
+\useoutertheme{shadow}
+% \useinnertheme{rectangles}
+
+\captionsetup{justification = centering}
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{page number in head/foot}{size = \small}
+\setbeamertemplate{footline}{%
+    \hspace{0.2cm}
+    \vspace{0.2cm}
+    \insertframenumber{}/\inserttotalframenumber{}
+}
+
+\captionsetup[figure]{labelformat = empty}
+\logo{\includegraphics[height = 10mm]{img/logo/tsp.png}}
+
+\AtBeginSection[] {%
+    \begin{frame}
+        \tableofcontents[
+            currentsection,
+            sectionstyle = show/shaded,
+            subsectionstyle = show/show/hide,
+            subsubsectionstyle = hide/hide/hide/hide,
+        ]{}
+    \end{frame}
+}
+
+\AtBeginSubsection[] {%
+    \begin{frame}
+        \tableofcontents[
+            currentsection,
+            sectionstyle = show/hide,
+            subsectionstyle = show/shaded/hide,
+            subsubsectionstyle = show/show/hide/hide,
+        ]{}
+    \end{frame}
+}
+
+\title{Soutenance de stage: Orange Cyberdéfense}
+\author{Paul Mabileau}
+\institute{Télécom SudParis}
+\date{7 Octobre 2021}
+
+
+
+\begin{document}
+
+
+\begin{frame}
+    \titlepage{}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        {\Large Plan }
+    \end{center}
+    \tableofcontents[subsubsectionstyle = hide]
+\end{frame}
+
+
+\end{document}
