@@ -60,6 +60,7 @@ grad                    This directory.
 ├── refs.bib            Bibliography.
 ├── glossary.tex        Glossary.
 ├── report.tex          The report.
+├── presentation.tex    The presentation.
 ├── img                 Image directory.
 │   └── ...             Various sub-directories.
 └── include             Contains parts imported in documents.
