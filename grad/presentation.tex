@@ -66,6 +66,13 @@
     \end{frame}
 }
 
+\makeatletter
+    \newenvironment{nohead}{%
+        \setbeamertemplate{headline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
 
 \title{Soutenance de stage: Orange Cyberdéfense}
 \subtitle{Intégration sécurité}
@@ -78,16 +85,20 @@
 \begin{document}
 
 
-\begin{frame}
-    \titlepage{}
-\end{frame}
+\begin{nohead}
+    \begin{frame}
+        \titlepage{}
+    \end{frame}
+\end{nohead}
 
-\begin{frame}
-    \begin{center}
-        {\Large Plan}
-    \end{center}
-    \tableofcontents[subsubsectionstyle = hide]
-\end{frame}
+\begin{nohead}
+    \begin{frame}
+        \begin{center}
+            {\Large Plan}
+        \end{center}
+        \tableofcontents[subsubsectionstyle = hide]
+    \end{frame}
+\end{nohead}
 
 
 \section{Introduction}
