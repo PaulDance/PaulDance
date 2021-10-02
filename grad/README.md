@@ -62,7 +62,13 @@ grad                    This directory.
 ├── report.tex          The report.
 ├── presentation.tex    The presentation.
 ├── img                 Image directory.
-│   └── ...             Various sub-directories.
+│   ├── sncf-access     SNCF Access project.
+│   ├── doc-hy          Hynamics project documentation.
+│   ├── fgt-auxr        Auxerre's FortiGate.
+│   ├── sw-auxr         Auxerre's switch.
+│   ├── fmg             La Défense's FortiManager.
+│   ├── logo            Logos.
+│   └── misc            Various generic images.
 └── include             Contains parts imported in documents.
     ├── vars.tex        Constants.
     ├── frontpage.tex   Frontpage of the report.
