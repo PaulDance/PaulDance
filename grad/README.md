@@ -30,6 +30,20 @@ such as:
  * geometry
  * biblatex
 
+for the report and:
+
+ * beamer with the Rochester theme
+ * url
+ * hyperref
+ * babel
+ * inputenc
+ * fontenc
+ * times
+ * caption
+ * subcaption
+
+for the presentation.
+
 In particular, some packages rely on external programs in order to deliver
 their full functionality: biblatex uses `biber` part of the `biber` system
 package  and glossaries `makeglossaries` part of the `texlive-latex-extra`
