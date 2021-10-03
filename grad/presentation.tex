@@ -324,6 +324,125 @@
 \end{frame}
 
 \subsubsection{Implémentation de la configuration}
+
+\begin{frame}
+    \frametitle{Implémentation de la configuration}
+    \begin{minipage}{0.3\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width = \linewidth]{img/fgt-auxr/interfaces.png}
+            \caption{Interfaces}%
+            \label{fig:fgt-auxr/interfaces}
+        \end{figure}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.6\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width = \linewidth]{img/fgt-auxr/routes.png}
+            \caption{Routes}%
+            \label{fig:fgt-auxr/routes}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Tunnels IPsec}
+    \begin{minipage}{0.5\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width = \linewidth]{img/fgt-auxr/ipsec-phase1.png}
+            \caption{Phase 1}%
+            \label{fig:fgt-auxr/ipsec-phase1}
+        \end{figure}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.4\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width = \linewidth]{img/fgt-auxr/ipsec-phase2.png}
+            \caption{Phases 2}%
+            \label{fig:fgt-auxr/ipsec-phase2}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}
+    \frametitle{BGP --- Voisins}
+    \begin{minipage}{0.6\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[height = 0.85\textheight]
+                {img/fgt-auxr/bgp-neighbors.png}
+            \caption{Configuration principale}%
+            \label{fig:fgt-auxr/bgp-neighbors}
+        \end{figure}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width = \linewidth]{img/fgt-auxr/bgp-nets.png}
+            \caption{Réseaux distribués}%
+            \label{fig:fgt-auxr/bgp-nets}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}
+    \frametitle{BGP --- Filtres}
+    \begin{minipage}{0.55\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width = \linewidth]{img/fgt-auxr/route-maps.png}
+            \caption{Associations de routes}%
+            \label{fig:fgt-auxr/route-maps}
+        \end{figure}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.4\textwidth}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width = \linewidth]{img/fgt-auxr/acl.png}
+            \caption{Listes d'accès}%
+            \label{fig:fgt-auxr/acl}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}
+    \frametitle{FortiManager}
+    \framesubtitle{\textit{Policy Packages}}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[height = 0.65\textheight]{img/fmg/policy-packages.png}
+        \caption{Pour le site d'Auxerre}%
+        \label{fig:fmg/policy-packages}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{FortiManager}
+    \framesubtitle{Associations groupe d'utilisateurs --- portail VPN}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width = \linewidth]{img/fmg/ssl-mappings.png}
+        \caption{Pour le site d'Auxerre}%
+        \label{fig:fmg/ssl-mappings}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{FortiManager}
+    \framesubtitle{Portail VPN}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width = 0.8\linewidth]{img/fmg/ssl-portal.png}
+        \caption{Pour les utilisateurs Hynamics sur Auxerre}%
+        \label{fig:fmg/ssl-portal}
+    \end{figure}
+\end{frame}
+
 \subsubsection{Mise en place des tests et migration}
 \subsubsection{Transferts de connaissances}
 
