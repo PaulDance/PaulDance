@@ -13,13 +13,9 @@
 </a>
 </p>
 
-- 🔭 I’m currently working on [Solving Advent of Code](https://github.com/club-code/CodingChallenges)
+- 👯 I’m currently working and looking to collaborate on [my `cargo-liner` project](https://github.com/PaulDance/cargo-liner)
 
-- 👯 I’m looking to collaborate on [My XR Project](https://github.com/PaulDance/xr)
-
-- 📫 How to reach me: **paul.mabileau@telecom-sudparis.eu**
-
-- ⚡ Fun fact: **I play Kendama!**
+- 📫 How to reach me: **paulmabileau@hotmail.fr**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
